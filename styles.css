@@ -26,6 +26,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif;
   color: var(--text);
   background:
@@ -1093,8 +1094,17 @@ textarea:focus-visible,
 
   .hero-slogan {
     max-width: 100%;
-    min-height: 5.2em;
+    min-height: 5.6em;
     font-size: clamp(2.8rem, 12.5vw, 5rem);
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.45rem, 6.2vw, 2rem);
+    line-height: 1.2;
+  }
+
+  .nowrap-zh {
+    font-size: 0.9em;
   }
 
   .hero-stage {
