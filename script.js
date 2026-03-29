@@ -6,6 +6,7 @@ const previewTitle = document.querySelector("#preview-title");
 const previewType = document.querySelector("#preview-type");
 const previewDescription = document.querySelector("#preview-description");
 const previewImage = document.querySelector("#preview-image");
+const heroSlogan = document.querySelector("#hero-slogan");
 const toast = document.querySelector("#toast");
 const archiveItems = document.querySelectorAll(".archive-item");
 const logGroups = document.querySelectorAll(".log-group");
@@ -24,6 +25,40 @@ function showToast(message) {
   showToast.timeoutId = window.setTimeout(() => {
     toast.classList.remove("is-visible");
   }, 2500);
+}
+
+function setupSloganSwitcher() {
+  if (!heroSlogan) {
+    return;
+  }
+
+  const layers = Array.from(heroSlogan.querySelectorAll(".slogan-layer"));
+  if (layers.length < 2) {
+    return;
+  }
+
+  const switchDelay = 4200;
+  const transitionDelay = 260;
+  let activeIndex = layers.findIndex((layer) => layer.classList.contains("is-active"));
+  if (activeIndex < 0) {
+    activeIndex = 0;
+    layers[0].classList.add("is-active");
+  }
+
+  window.setInterval(() => {
+    const nextIndex = (activeIndex + 1) % layers.length;
+    heroSlogan.classList.add("is-switching");
+
+    window.setTimeout(() => {
+      layers[activeIndex].classList.remove("is-active");
+      layers[nextIndex].classList.add("is-active");
+      activeIndex = nextIndex;
+    }, transitionDelay);
+
+    window.setTimeout(() => {
+      heroSlogan.classList.remove("is-switching");
+    }, 760);
+  }, switchDelay);
 }
 
 function updateProgressBar() {
@@ -293,3 +328,4 @@ window.addEventListener("load", updateProgressBar);
 
 setupLogGroups();
 applyFilter("all");
+setupSloganSwitcher();
