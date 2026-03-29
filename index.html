@@ -488,70 +488,42 @@
               </p>
             </article>
 
-            <form class="panel commission-form" id="commission-form">
-              <div class="field-grid">
+            <form
+              class="panel commission-form"
+              id="commission-form"
+              target="_blank"
+              action="https://formsubmit.co/771997200@qq.com"
+              method="POST"
+            >
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="New Commission Request" />
+
+              <div class="form-group">
+                <div class="field-grid">
+                  <label class="col">
+                    <span>Full Name</span>
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" required />
+                  </label>
+                  <label class="col">
+                    <span>Email Address</span>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required />
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label>
-                  <span>Name / Studio</span>
-                  <input type="text" name="name" placeholder="Your name or studio" required />
-                </label>
-                <label>
-                  <span>Email / Contact</span>
-                  <input type="text" name="contact" placeholder="Email, WeChat, or phone" required />
-                </label>
-                <label>
-                  <span>Project type</span>
-                  <select name="type" required>
-                    <option value="">Select</option>
-                    <option value="Architecture">Architecture</option>
-                    <option value="Public Space">Public Space</option>
-                    <option value="Interior Renovation">Interior Renovation</option>
-                    <option value="Exhibition / Installation">Exhibition / Installation</option>
-                  </select>
-                </label>
-                <label>
-                  <span>Budget range</span>
-                  <select name="budget" required>
-                    <option value="">Select</option>
-                    <option value="Under 3k">Under 3k</option>
-                    <option value="3k - 8k">3k - 8k</option>
-                    <option value="8k - 15k">8k - 15k</option>
-                    <option value="15k+">15k+</option>
-                  </select>
+                  <span>Your Message</span>
+                  <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
                 </label>
               </div>
 
-              <label>
-                <span>Timeline</span>
-                <input type="text" name="timeline" placeholder="Desired start date or delivery window" />
-              </label>
-
-              <label>
-                <span>Project brief</span>
-                <textarea
-                  name="brief"
-                  rows="6"
-                  placeholder="Describe the project context, needs, site condition, and expected outcomes."
-                  required
-                ></textarea>
-              </label>
-
-              <label>
-                <span>Reference links</span>
-                <input type="text" name="reference" placeholder="Links to site photos, boards, or references" />
-              </label>
-
               <div class="form-actions">
-                <button class="button button-solid" type="submit">Generate Brief Summary</button>
-                <p class="form-note">Demo version: the form creates an on-page summary card.</p>
+                <button type="submit" class="button button-solid">Submit Form</button>
+                <p class="form-note">Submission will open FormSubmit result in a new tab.</p>
               </div>
             </form>
           </div>
-
-          <article class="panel submission-card" id="submission-card" hidden>
-            <p class="kicker">Brief Summary</p>
-            <h3>Commission request recorded</h3>
-            <div class="submission-output" id="submission-output"></div>
-          </article>
         </section>
       </main>
     </div>

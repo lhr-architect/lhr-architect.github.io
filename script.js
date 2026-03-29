@@ -6,9 +6,6 @@ const previewTitle = document.querySelector("#preview-title");
 const previewType = document.querySelector("#preview-type");
 const previewDescription = document.querySelector("#preview-description");
 const previewImage = document.querySelector("#preview-image");
-const commissionForm = document.querySelector("#commission-form");
-const submissionCard = document.querySelector("#submission-card");
-const submissionOutput = document.querySelector("#submission-output");
 const toast = document.querySelector("#toast");
 const archiveItems = document.querySelectorAll(".archive-item");
 const logGroups = document.querySelectorAll(".log-group");
@@ -261,40 +258,6 @@ workCards.forEach((card) => {
       showToast(`${card.dataset.title} selected for preview.`);
     }
   });
-});
-
-commissionForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const formData = new FormData(commissionForm);
-  const entries = [
-    ["Client", formData.get("name")],
-    ["Contact", formData.get("contact")],
-    ["Project Type", formData.get("type")],
-    ["Budget", formData.get("budget")],
-    ["Timeline", formData.get("timeline") || "Not provided"],
-    ["Brief", formData.get("brief")],
-    ["References", formData.get("reference") || "Not provided"],
-  ];
-
-  submissionOutput.innerHTML = "";
-
-  entries.forEach(([label, value]) => {
-    const row = document.createElement("div");
-    const title = document.createElement("strong");
-    const content = document.createElement("span");
-
-    title.textContent = label;
-    content.textContent = value;
-    row.append(title, content);
-    submissionOutput.append(row);
-  });
-
-  submissionCard.hidden = false;
-  const cardTop = submissionCard.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
-  smoothScrollTo(cardTop);
-  commissionForm.reset();
-  showToast("Brief summary generated on the page.");
 });
 
 window.addEventListener("wheel", cancelSmoothScroll, { passive: true });
