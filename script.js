@@ -1,12 +1,5 @@
 const progressBar = document.querySelector("#progress-bar");
 const revealItems = document.querySelectorAll(".reveal");
-const filterButtons = document.querySelectorAll(".filter-button");
-const workCards = document.querySelectorAll(".work-card");
-const previewTitle = document.querySelector("#preview-title");
-const previewType = document.querySelector("#preview-type");
-const previewDescription = document.querySelector("#preview-description");
-const previewImage = document.querySelector("#preview-image");
-const heroSlogan = document.querySelector("#hero-slogan");
 const toast = document.querySelector("#toast");
 const archiveItems = document.querySelectorAll(".archive-item");
 const logGroups = document.querySelectorAll(".log-group");
@@ -25,40 +18,6 @@ function showToast(message) {
   showToast.timeoutId = window.setTimeout(() => {
     toast.classList.remove("is-visible");
   }, 2500);
-}
-
-function setupSloganSwitcher() {
-  if (!heroSlogan) {
-    return;
-  }
-
-  const layers = Array.from(heroSlogan.querySelectorAll(".slogan-layer"));
-  if (layers.length < 2) {
-    return;
-  }
-
-  const switchDelay = 4200;
-  const transitionDelay = 260;
-  let activeIndex = layers.findIndex((layer) => layer.classList.contains("is-active"));
-  if (activeIndex < 0) {
-    activeIndex = 0;
-    layers[0].classList.add("is-active");
-  }
-
-  window.setInterval(() => {
-    const nextIndex = (activeIndex + 1) % layers.length;
-    heroSlogan.classList.add("is-switching");
-
-    window.setTimeout(() => {
-      layers[activeIndex].classList.remove("is-active");
-      layers[nextIndex].classList.add("is-active");
-      activeIndex = nextIndex;
-    }, transitionDelay);
-
-    window.setTimeout(() => {
-      heroSlogan.classList.remove("is-switching");
-    }, 760);
-  }, switchDelay);
 }
 
 function updateProgressBar() {
@@ -113,9 +72,10 @@ function updateLogStack(group, activeIndex) {
 
   stackItems.forEach((item, index) => {
     const offset = (index - nextActive + count) % count;
-    const isVisible = offset < 4;
+    const isVisible = offset === 0;
     const isTop = offset === 0;
 
+    item.hidden = !isVisible;
     item.style.setProperty("--stack-pos", String(offset));
     item.style.opacity = isVisible ? "1" : "0";
     item.style.pointerEvents = isTop ? "auto" : "none";
@@ -174,7 +134,7 @@ function smoothScrollTo(targetY) {
   const maxY = document.documentElement.scrollHeight - window.innerHeight;
   const clampedTargetY = Math.max(0, Math.min(targetY, maxY));
   const distance = clampedTargetY - startY;
-  const duration = Math.max(1100, Math.min(2200, Math.abs(distance) * 0.95));
+  const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : Math.max(300, Math.min(650, Math.abs(distance) * 0.25));
   let startTime = null;
 
   function step(timestamp) {
@@ -183,7 +143,7 @@ function smoothScrollTo(targetY) {
     }
 
     const elapsed = timestamp - startTime;
-    const progress = Math.min(elapsed / duration, 1);
+    const progress = duration === 0 ? 1 : Math.min(elapsed / duration, 1);
     const eased = easeInOutQuart(progress);
     window.scrollTo(0, startY + distance * eased);
 
@@ -196,34 +156,6 @@ function smoothScrollTo(targetY) {
   }
 
   activeScrollAnimation = window.requestAnimationFrame(step);
-}
-
-function updatePreview(card) {
-  previewTitle.textContent = card.dataset.title;
-  previewType.textContent = card.dataset.type;
-  previewDescription.textContent = card.dataset.description;
-  previewImage.src = card.dataset.image;
-  previewImage.alt = `${card.dataset.title} preview image`;
-
-  workCards.forEach((item) => item.classList.remove("is-active"));
-  card.classList.add("is-active");
-}
-
-function applyFilter(filter) {
-  let firstVisibleCard = null;
-
-  workCards.forEach((card) => {
-    const shouldShow = filter === "all" || card.dataset.category === filter;
-    card.classList.toggle("is-hidden", !shouldShow);
-
-    if (shouldShow && !firstVisibleCard) {
-      firstVisibleCard = card;
-    }
-  });
-
-  if (firstVisibleCard) {
-    updatePreview(firstVisibleCard);
-  }
 }
 
 const revealObserver = new IntersectionObserver(
@@ -264,43 +196,13 @@ anchorLinks.forEach((link) => {
   });
 });
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach((item) => item.classList.remove("is-active"));
-    button.classList.add("is-active");
-    applyFilter(button.dataset.filter);
-  });
-});
-
-workCards.forEach((card) => {
-  card.setAttribute("tabindex", "0");
-
-  card.addEventListener("mouseenter", () => {
-    if (!card.classList.contains("is-hidden")) {
-      updatePreview(card);
-    }
-  });
-
-  card.addEventListener("click", () => {
-    updatePreview(card);
-    showToast(`${card.dataset.title} selected for preview.`);
-  });
-
-  card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      updatePreview(card);
-      showToast(`${card.dataset.title} selected for preview.`);
-    }
-  });
-});
-
 window.addEventListener("wheel", cancelSmoothScroll, { passive: true });
 window.addEventListener("touchstart", cancelSmoothScroll, { passive: true });
 
 archiveItems.forEach((item) => {
   item.addEventListener("click", () => {
-    if (!item.classList.contains("stack-item")) {
+    // Log photos that link to a project page navigate instead of opening the lightbox.
+    if (!item.classList.contains("stack-item") || !item.dataset.lightboxSrc) {
       return;
     }
 
@@ -327,5 +229,3 @@ window.addEventListener("scroll", updateProgressBar, { passive: true });
 window.addEventListener("load", updateProgressBar);
 
 setupLogGroups();
-applyFilter("all");
-setupSloganSwitcher();

@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <title>Park U Go · 离线演示</title>
+  <link rel="stylesheet" href="./styles.css?v=146-portfolio">
+  <link rel="stylesheet" href="./vendor/leaflet.css" data-leaflet-css="true">
+</head>
+<body>
+  <a class="portfolio-return" href="../../game-parkugo.html" data-return-zh="← Park U GO" data-return-en="← Park U GO">← Park U GO</a>
+  <audio id="bgMusic" src="./70_full_mini-kong_0103_preview.mp3" loop preload="none"></audio>
+  <script src="./vendor/html2canvas.min.js" defer></script>
+  <main id="app" class="phone-shell">
+    <section class="screen active" data-screen="home">
+      <header class="desktop-menu">
+        <div class="brand-pixel">P</div>
+        <button class="menu-text" type="button">SETTING</button>
+        <button class="menu-text" data-action="help">HELP</button>
+        <time id="clockText" class="menu-time">--:--</time>
+        <button class="music-toggle" data-action="music-toggle" type="button" aria-label="Background music" title="Background music">♪</button>
+      </header>
+
+      <div class="desktop-grid">
+        <div class="icon-stack">
+          <div class="desk-icon"><canvas id="iconMap" width="96" height="96"></canvas><small>MAP</small></div>
+          <div class="desk-icon"><canvas id="iconTasks" width="96" height="96"></canvas><small>TASKS</small></div>
+          <div class="desk-icon"><canvas id="iconProfile" width="96" height="96"></canvas><small>PROFILE</small></div>
+        </div>
+
+        <div class="window logo-window">
+          <div class="window-bar">
+            <span></span>
+            <div class="win-buttons"><i>-</i><i>□</i><i>×</i></div>
+          </div>
+          <div class="logo-body">
+            <canvas id="logoCanvas" class="logo-canvas" width="520" height="92" aria-label="PKU GO"></canvas>
+          </div>
+          <canvas id="ditherCanvas" class="dither-canvas" width="520" height="160"></canvas>
+        </div>
+
+        <form class="window room-dialog" id="joinForm">
+          <div class="dialog-bar">
+            <strong>Enter Room</strong>
+            <i>×</i>
+          </div>
+          <div class="mode-tabs" role="tablist">
+            <button class="mode-tab active" data-mode="weiming" type="button">WEIMING LAKE</button>
+            <button class="mode-tab" data-mode="checkmate" type="button">CHECKMATE</button>
+          </div>
+          <label class="field-row">
+            <span>Room ID</span>
+            <input id="roomInput" value="test" autocomplete="off" inputmode="latin">
+          </label>
+          <label class="field-row">
+            <span>Player</span>
+            <input id="playerInput" placeholder="Alex" autocomplete="off">
+          </label>
+          <button class="primary-button" type="submit">ENTER</button>
+          <div class="mode-hint" id="modeHint">Weiming Lake mode · 15 fixed points + triangle siege</div>
+        </form>
+        <div class="trash-icon">
+          <canvas id="iconTrash" width="96" height="96"></canvas>
+          <small>TRASH</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen permissions-screen" data-screen="permissions">
+      <div class="hero-scanlines"></div>
+      <header class="top-strip">
+        <div class="top-left-group">
+          <button class="back-button" data-action="back" aria-label="Back" type="button">‹</button>
+          <span id="permissionRoom">ROOM --</span>
+        </div>
+        <span>SETUP</span>
+      </header>
+
+      <section class="permission-panel">
+        <div class="permission-title">
+          <strong>PERMISSIONS</strong>
+          <span>Choose the features for this match</span>
+        </div>
+        <label class="permission-option">
+          <input id="setupCameraCheck" type="checkbox" checked>
+          <span>CAMERA</span>
+          <small>Live viewfinder & shutter</small>
+        </label>
+        <label class="permission-option">
+          <input id="setupLocationCheck" type="checkbox" checked>
+          <span>GPS</span>
+          <small>Live location & map</small>
+        </label>
+        <label class="permission-option">
+          <input id="setupSpeechCheck" type="checkbox" checked>
+          <span>VOICE</span>
+          <small>Record a voice note while holding the shutter</small>
+        </label>
+        <button id="permissionContinueBtn" class="primary-button permission-continue" type="button">GO</button>
+      </section>
+    </section>
+
+    <section class="screen" data-screen="hero">
+      <div class="hero-scanlines"></div>
+      <header class="top-strip">
+        <div class="top-left-group">
+          <button class="back-button" data-action="back" aria-label="Back" type="button">‹</button>
+          <span id="heroRoom">ROOM --</span>
+        </div>
+        <span id="heroState">WAIT · --:--</span>
+        <button class="music-toggle" data-action="music-toggle" type="button" aria-label="Background music" title="Background music">♪</button>
+      </header>
+
+      <div class="hero-stage">
+        <div class="avatar-card">
+          <canvas id="heroCanvas" width="160" height="220"></canvas>
+          <div class="hero-glow"></div>
+        </div>
+        <div class="hero-copy">
+          <div class="hero-name-row">
+            <strong id="heroName">HUNTER</strong>
+            <span id="heroLabel">HUNTER</span>
+            <em id="heroTitle">FIELD SHOOTER</em>
+          </div>
+          <div class="skill-row">
+            <small>SKILL</small>
+            <b id="heroSkill">Standard Capture</b>
+            <em id="heroDelay">0s</em>
+          </div>
+          <p id="heroLine">Steady framing — collect one combat resource.</p>
+        </div>
+      </div>
+
+      <div class="selector-card">
+        <div id="heroStrip" class="hero-strip"></div>
+        <div class="hero-slider-track">
+          <div id="heroSliderFill" class="hero-slider-fill"></div>
+        </div>
+        <div id="topicStrip" class="topic-strip"></div>
+      </div>
+
+      <section class="room-card">
+        <canvas class="room-board" id="roomBoard" width="420" height="420"></canvas>
+        <aside>
+          <strong id="playerCount">0</strong>
+          <small>PLAYERS</small>
+          <div id="topicCounts" class="mini-list"></div>
+          <div id="teamCounts" class="mini-list"></div>
+        </aside>
+      </section>
+
+      <form class="hero-actions" id="heroForm">
+        <button id="lockBtn" class="outline-button" type="button">LOCK</button>
+        <button id="enterBattleBtn" class="outline-button strong" type="button">GO ▶</button>
+      </form>
+
+      <section class="hero-feature-frame">
+        <div class="hero-feature-title">FEATURE.PIX</div>
+        <canvas id="featureCanvas" class="feature-canvas" width="720" height="180"></canvas>
+      </section>
+    </section>
+
+    <section class="screen battle-screen" data-screen="battle">
+      <div class="battle-device">
+        <div class="battle-bezel"></div>
+
+        <header class="top-rail">
+          <div>
+            <div class="room-id" id="battleRoom">ROOM TEST</div>
+            <div class="mission-line">
+              <button class="back-button battle-back" data-action="back" aria-label="Back" type="button">‹</button>
+              <span class="mission-hero-chip" id="battleHeroIcon">⌖</span>
+              <strong class="mission-title" id="battleIdentity">HUNTER · RED FIELD</strong>
+            </div>
+          </div>
+          <div class="match-hud">
+            <time id="remainingText" class="match-clock">--:--</time>
+            <div class="match-score" id="matchScore"></div>
+          </div>
+          <div class="rail-right">
+            <canvas id="battleDancerCanvas" class="battle-dancer" width="56" height="56" aria-label="dancing role"></canvas>
+            <button class="icon-button dbg-btn" data-action="dbg-refresh" aria-label="full refresh" title="Refresh location / camera / status" type="button">⟳</button>
+          </div>
+        </header>
+
+        <aside class="film-column" id="filmColumn">
+          <button class="film active" data-panel="album" data-no="01" aria-label="film slot 1" type="button"></button>
+          <button class="film empty" data-panel="album" data-no="02" aria-label="film slot 2" type="button"></button>
+          <button class="film empty" data-panel="album" data-no="03" aria-label="film slot 3" type="button"></button>
+          <button class="film empty" data-panel="album" data-no="04" aria-label="film slot 4" type="button"></button>
+          <button class="film empty" data-panel="album" data-no="05" aria-label="film slot 5" type="button"></button>
+        </aside>
+
+        <div class="ammo-flow" aria-hidden="true"><span class="ammo-flow-pulse"></span></div>
+
+        <aside class="side-panel" aria-label="viewfinder status">
+          <div class="hp-lamps" id="hpLamps" aria-label="HP signal">
+            <i class="hp-lamp on"></i><i class="hp-lamp on"></i>
+            <span id="hpText" class="sr-only">2/2</span>
+          </div>
+        </aside>
+
+        <input class="map-toggle" id="mapToggle" type="checkbox">
+        <label class="map-pull" for="mapToggle">MAP</label>
+        <section class="drop-map map-panel">
+          <div class="map-head"><span>FIELD MAP</span><span>LIVE GPS</span></div>
+          <div class="map-grid" id="mapGrid"></div>
+          <button id="locateBtn" class="map-corner" type="button">⌖ LOCATE</button>
+        </section>
+
+        <section class="viewfinder" aria-label="battle viewfinder">
+          <video id="viewfinderVideo" autoplay playsinline muted></video>
+          <div class="viewfinder-controls">
+            <button id="flipCameraBtn" class="vf-control" type="button" aria-label="flip camera">↺</button>
+          </div>
+          <div class="role-effects" aria-hidden="true">
+            <div class="vf-standard-frame">
+              <i class="third v one"></i><i class="third v two"></i>
+              <i class="third h one"></i><i class="third h two"></i>
+              <i class="std-corner lt"></i><i class="std-corner rt"></i><i class="std-corner lb"></i><i class="std-corner rb"></i>
+              <i class="center-cross"></i>
+              <i class="meter-dot one"></i><i class="meter-dot two"></i><i class="meter-dot three"></i>
+            </div>
+            <div class="vf-tele-reticle">
+              <i class="ring"></i><i class="ring outer"></i><i class="line h"></i><i class="line v"></i><b>LOCK</b>
+            </div>
+            <div class="vf-range"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="vf-pano-mask top"></div><div class="vf-pano-mask bottom"></div>
+            <div class="vf-pano-frame"><i></i><i></i><span></span><b>A</b><b>B</b><b>C</b></div>
+            <div class="vf-scan-grid"></div><div class="vf-scan-line"></div>
+            <div class="vf-signal"><i></i><i></i><i></i><i></i></div>
+            <div class="vf-support-pulse"></div><div class="vf-support-pulse second"></div>
+            <i class="vf-support-node top"></i><i class="vf-support-node right"></i><i class="vf-support-node bottom"></i><i class="vf-support-node left"></i>
+            <div id="captureCountdown" class="capture-countdown hidden"></div>
+            <div id="chargeBar" class="charge-bar hidden"><i></i></div>
+          </div>
+
+          <!-- 低功耗待机：IDLE 边缘提示 → STANDBY 机械挡板闭合 → WAKE 唤醒 -->
+          <div class="vf-standby" id="vfStandby" aria-hidden="true">
+            <div class="vf-edge top"></div>
+            <div class="vf-edge bot"></div>
+            <div class="vf-shutter vf-shutter-top">
+              <div class="vf-sh-seg"></div>
+              <div class="vf-sh-meta"><span>UNIT·04</span><span>LP-7720</span>
+                <span class="vf-sh-leds"><i class="vf-led g"></i><i class="vf-led a"></i><i class="vf-led r"></i></span></div>
+              <div class="vf-sh-ticks"></div>
+              <div class="vf-sh-edge"></div>
+            </div>
+            <div class="vf-shutter vf-shutter-bottom">
+              <div class="vf-sh-edge"></div>
+              <div class="vf-sh-ticks"></div>
+              <div class="vf-sh-meta"><span>PWR·LP01</span><span>CELL 88%</span>
+                <span class="vf-sh-leds"><i class="vf-led g"></i><i class="vf-led a"></i></span></div>
+              <div class="vf-sh-seg"></div>
+            </div>
+            <div class="vf-seam"></div>
+            <div class="vf-standby-text">
+              <span class="vf-st-main">STANDBY</span>
+              <span class="vf-st-a">LOW POWER</span>
+              <span class="vf-st-b">GPS READY</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="radar" id="radar" aria-hidden="true">
+          <i class="blip a"></i><i class="blip b"></i><i class="blip c"></i>
+        </section>
+
+        <span id="drawerLoaded" class="hidden">0 / 5</span>
+        <span id="hpSub" class="hidden">STABLE</span>
+        <span id="scoreSub" class="hidden">NO SCORE</span>
+        <div class="flash" aria-hidden="true"></div>
+
+        <div id="hitToast" class="hit-toast hidden" role="alert" aria-live="assertive">
+          <span class="hit-toast-icon" id="hitToastIcon">⚡</span>
+          <div class="hit-toast-body">
+            <strong id="hitToastTitle">YOU'RE HIT</strong>
+            <span id="hitToastSub">HP 1/2 · Take cover</span>
+          </div>
+        </div>
+
+        <section id="deathOverlay" class="death-overlay hidden" aria-live="polite">
+          <div id="deathPrompt" class="death-card">
+            <span class="death-kicker">PLAYER DOWN</span>
+            <strong id="deathTitle">YOU WERE ELIMINATED</strong>
+            <p id="deathKiller" class="death-killer hidden"></p>
+            <p id="deathText">Reach the Stone Archway revive point to respawn. Revive radius is 20m.</p>
+            <div class="death-actions">
+              <button id="reviveStoneBtn" data-death-action="stone" type="button">Revive at Archway</button>
+              <button id="reviveDanceBtn" data-death-action="dance" type="button">Dance instead</button>
+            </div>
+            <div id="stoneReviveBar" class="stone-revive-bar hidden">
+              <span id="stoneReviveTimer">15s</span>
+              <div class="stone-revive-track"><i id="stoneReviveFill"></i></div>
+            </div>
+          </div>
+          <div id="danceRevive" class="dance-revive hidden">
+            <canvas id="deathDancerCanvas" width="160" height="200" aria-label="revive dance"></canvas>
+            <strong>DANCE REVIVE</strong>
+            <span id="danceTimer">15s</span>
+            <div class="dance-progress"><i id="danceProgress"></i></div>
+          </div>
+        </section>
+
+        <footer class="action-well">
+          <div class="hardware">
+            <button class="ally-status" id="allyStatus" data-panel="allies" type="button" aria-label="ally status">
+              <b id="allyName">Ally</b>
+              <em id="allyHp">Solo</em>
+            </button>
+            <div class="mech-shutter" id="mechShutter">
+              <svg class="mech-arc" viewBox="0 0 160 160" aria-hidden="true">
+                <path d="M 30 51 A 58 58 0 0 1 130 51"/>
+              </svg>
+              <div class="mech-outer-ring"></div>
+              <div class="mech-gear" id="mechGear"></div>
+              <div class="mech-pointer-orbit" id="mechPointerOrbit">
+                <div class="mech-pointer" id="mechPointer"></div>
+              </div>
+              <button id="cameraBtn" class="mech-btn" type="button" aria-label="Capture · hold to zoom"></button>
+              <div class="mech-zoom-pill" id="mechZoomPill">1.0×</div>
+            </div>
+            <button id="towerReportBtn" class="hard-btn" data-panel="combat" type="button">REPORT</button>
+          </div>
+
+          <section class="combat-console" id="combatConsole" aria-label="Target and fire console">
+            <div class="scope-dial" id="scopeDial">
+              <div class="dial-pointer" id="dialPointer">
+                <div class="dial-fire-fill" id="dialFireFill"></div>
+                <i class="slide-cp cp-team" data-phase="1"></i>
+                <i class="slide-cp cp-target" data-phase="2"></i>
+                <i class="slide-cp cp-fire" data-phase="3"></i>
+                <span class="dial-fire-knob" id="dialFireKnob"></span>
+              </div>
+              <button id="combatBtn" class="dial-hit" type="button" aria-label="fire trigger"></button>
+              <div class="dial-col" data-wheel="topic">
+                <div class="dial-stack" id="dialTeamStack">
+                  <div class="dial-option" style="--topic:#00DCFF"><i class="dial-swatch" style="background:#00DCFF"></i></div>
+                  <div class="dial-option current" style="--topic:#E83A28"><i class="dial-swatch" style="background:#E83A28"></i></div>
+                  <div class="dial-option" style="--topic:#50C83C"><i class="dial-swatch" style="background:#50C83C"></i></div>
+                </div>
+              </div>
+              <div class="dial-col" data-wheel="target">
+                <div class="dial-stack" id="dialTargetStack">
+                  <div class="dial-option"><span>ALLY_02</span></div>
+                  <div class="dial-option current"><span>BETA_01 · 28M</span></div>
+                  <div class="dial-option"><span>POINT_A · 12M</span></div>
+                </div>
+              </div>
+            </div>
+            <div id="targetList" class="hidden"></div>
+            <div id="wizardPanel" class="wizard-panel hidden"></div>
+            <div id="kingPanel" class="king-panel hidden"></div>
+            <div id="eventFeed" class="report-ticker dial-event"></div>
+            <div id="dialCd" class="dial-cd hidden" aria-hidden="true"></div>
+          </section>
+
+          <section class="tower-console hidden" id="towerConsole" aria-label="Tower capture console">
+            <div class="tower-photo-rail" aria-label="Tower photo points">
+              <button class="tower-photo active" data-tower-point="0" type="button" aria-label="Tower photo point 1"><span>1</span></button>
+              <button class="tower-photo" data-tower-point="1" type="button" aria-label="Tower photo point 2"><span>2</span></button>
+              <button class="tower-photo" data-tower-point="2" type="button" aria-label="Tower photo point 3"><span>3</span></button>
+              <div class="tower-slider" id="towerSlider" aria-label="Pull down to capture tower">
+                <div class="tower-slider-fill" id="towerSliderFill"></div>
+                <div class="tower-slider-knob" id="towerSliderKnob">↓</div>
+              </div>
+            </div>
+
+            <div class="tower-map-mini" id="towerMapMini">
+              <div id="towerMiniAmap" class="tower-mini-amap"></div>
+              <div class="tower-map-title hidden" id="towerMapTitle">WATCHTOWER<small>3-POINT CLAIM</small></div>
+              <svg class="tower-map-svg hidden" viewBox="0 0 220 110" aria-hidden="true">
+                <path d="M110 12 L36 93 L184 93 Z" fill="rgba(17,17,17,.04)" stroke="#111" stroke-width="4"/>
+                <circle cx="110" cy="12" r="15" fill="#e4e1da" stroke="#111" stroke-width="4"/>
+                <circle cx="36" cy="93" r="15" fill="#e4e1da" stroke="#111" stroke-width="4"/>
+                <circle cx="184" cy="93" r="15" fill="#e4e1da" stroke="#111" stroke-width="4"/>
+                <circle cx="110" cy="67" r="31" fill="none" stroke="rgba(17,17,17,.48)" stroke-width="3" stroke-dasharray="6 5"/>
+                <path d="M82 67 H138" stroke="rgba(17,17,17,.28)" stroke-width="2"/>
+                <path d="M110 40 V96" stroke="rgba(17,17,17,.28)" stroke-width="2"/>
+              </svg>
+              <i class="tower-point p1 hidden">1</i>
+              <i class="tower-point p2 hidden">2</i>
+              <i class="tower-point p3 hidden">3</i>
+              <b class="tower-core hidden">♜</b>
+              <div class="tower-status hidden" id="towerStatus">PULL DOWN TO CAPTURE</div>
+            </div>
+          </section>
+
+          <nav class="battle-mode-switch" id="battleModeSwitch" aria-label="battle mode switch">
+            <span class="mode-switch-thumb" aria-hidden="true"></span>
+            <button class="mode-card active" data-mode="kill" type="button" aria-label="Kill mode">
+              <span class="mode-icon">⌖</span>
+              <span class="mode-text">KILL</span>
+            </button>
+            <button class="mode-card" data-mode="tower" type="button" aria-label="Tower mode">
+              <span class="mode-icon">♜</span>
+              <span class="mode-text">TOWER</span>
+            </button>
+          </nav>
+
+          <div class="tower-info-card" id="towerInfoCard">
+            <strong id="towerInfoName">BOYA TOWER</strong>
+            <div class="tower-info-status" id="towerInfoStatus"></div>
+            <p id="towerInfoDesc">The core landmark of Weiming Lake — ideal as a defensive anchor and rally marker.</p>
+            <em id="towerInfoNote">This one I actually know well.</em>
+            <button class="tower-info-handle" id="towerInfoHandle" type="button">▲ INFO</button>
+          </div>
+        </footer>
+
+        <section id="towerReportOverlay" class="tower-report-overlay hidden" aria-label="Weiming Lake overview map">
+          <div class="tower-report-backdrop" data-tower-report-close></div>
+          <div class="tower-report-panel">
+            <header class="tower-report-head">
+              <div><strong id="towerReportTitle">WEIMING LAKE OVERVIEW</strong><span id="towerReportSub">15 POINT OCCUPANCY</span></div>
+              <b>N</b>
+              <button data-tower-report-close type="button" aria-label="close tower report">×</button>
+            </header>
+            <div class="tower-report-map">
+              <div id="towerReportAmap" class="tower-report-amap"></div>
+              <svg class="tower-lake-art" viewBox="0 0 320 230" aria-hidden="true">
+                <path class="lake" d="M62 83 C88 38 160 28 222 43 C270 55 294 93 278 132 C260 174 202 187 144 176 C91 166 39 137 62 83 Z"/>
+                <path class="island" d="M141 90 C158 73 190 74 206 93 C220 109 213 134 190 143 C165 153 137 141 130 119 C126 108 130 99 141 90 Z"/>
+                <path class="shore" d="M37 74 C75 24 167 7 250 33 M42 158 C93 201 195 215 280 160"/>
+                <path class="bridge" d="M197 77 C213 61 227 55 244 51"/>
+                <path class="bridge" d="M126 135 C107 147 94 155 79 169"/>
+                <path class="path" d="M30 112 C82 98 106 79 151 51 C197 21 256 48 298 82"/>
+                <path class="path" d="M21 185 C79 160 114 154 159 166 C214 181 257 167 303 129"/>
+              </svg>
+              <div id="towerReportPoints" class="tower-report-points"></div>
+              <span class="tower-you">YOU</span>
+            </div>
+            <footer class="tower-report-foot">
+              <div class="tower-report-legend" aria-hidden="true"><span class="ally">ALLY</span><span class="enemy">ENEMY</span><span class="neutral">FREE</span></div>
+              <strong id="towerReportSelected">POINT 01 · BOYA TOWER</strong>
+              <button id="towerReportSelectBtn" class="tower-report-select" data-tower-confirm type="button">SELECT POINT 01</button>
+            </footer>
+          </div>
+        </section>
+
+        <!-- Result overlay -->
+        <section class="res-panel hidden" id="resultPanel" aria-label="battle result">
+          <section class="res-hero">
+            <div><h1 id="resVerdict">VICTORY</h1><small id="resVerdictSub">RED WINS</small></div>
+          </section>
+          <section class="res-team-score">
+            <div class="res-team-box"><em id="resAllyLabel">ALLIES</em><b id="resAllyScore">0</b></div>
+            <div class="res-vs">:</div>
+            <div class="res-team-box res-team-enemy"><em>ENEMY</em><b id="resEnemyScore">0</b></div>
+          </section>
+          <section class="res-summary">
+            <div class="res-sum-card res-sum-score"><span>SCORE</span><b id="resMyScore">0</b></div>
+            <div class="res-sum-card">
+              <span>TITLE</span>
+              <div class="res-medal"></div>
+              <b id="resTitle" class="res-title-name">Battlefield Soldier</b>
+            </div>
+            <div class="res-sum-card res-sum-avg"><span>TEAM AVG</span><b id="resTeamAvg">0</b><small>pts</small></div>
+          </section>
+          <section class="res-breakdown">
+            <h2 class="res-sec-title">PERFORMANCE</h2>
+            <div class="res-break-grid">
+              <div class="res-break-item"><span><i>⌖</i>Kills</span><b id="resCombat">0</b></div>
+              <div class="res-break-item"><span><i>✚</i>Heals</span><b id="resSupport">0</b></div>
+              <div class="res-break-item"><span><i>⚑</i>Points</span><b id="resControl">0</b></div>
+            </div>
+          </section>
+          <section class="res-log">
+            <h2 class="res-log-title">COMBAT LOG</h2>
+            <div id="resLog"></div>
+          </section>
+          <section class="res-actions">
+            <button class="res-btn" data-action="result-home" type="button">HOME</button>
+            <button class="res-btn res-btn-primary" data-action="result-save" type="button">SAVE<small>Screenshot</small></button>
+            <button class="res-btn" data-action="result-history" type="button">ACTION<br>REVIEW</button>
+          </section>
+          <section class="res-dance">
+            <canvas id="resultDanceCanvas" class="res-dance-canvas" width="560" height="160" aria-label="victory dance"></canvas>
+          </section>
+        </section>
+
+        <!-- History overlay -->
+        <section class="res-history hidden" id="historyPanel" aria-label="battle history">
+          <header class="res-hist-head">
+            <button class="res-hist-back" data-action="result-back" type="button">‹</button>
+            <div><strong>ACTION REVIEW</strong><span>Photos · Combat log</span></div>
+            <button class="res-hist-save" data-action="result-history-save" type="button">SAVE</button>
+          </header>
+          <section class="res-hist-map">
+            <div id="resHistAmap" class="res-hist-amap"></div>
+            <div class="res-hist-legend">
+              <span><i class="rhl-photo"></i>Photo</span>
+              <span><i class="rhl-down"></i>Down</span>
+              <span><i class="rhl-capture"></i>Capture</span>
+            </div>
+          </section>
+          <section class="res-hist-stats">
+            <div><span>Photos</span><b id="histPhotos">0</b></div>
+            <div><span>Kills</span><b id="histKills">0</b></div>
+            <div><span>Downs</span><b id="histDown">0</b></div>
+          </section>
+          <section class="res-photo-mem">
+            <div class="res-mem-head">
+              <strong>PHOTO LOG</strong><span id="resMemCount">0</span>
+            </div>
+            <div class="res-mem-strip" id="resMemStrip"></div>
+          </section>
+          <section class="res-hist-timeline" id="resHistTimeline"></section>
+        </section>
+
+      </div>
+    </section>
+
+    <section id="sheet" class="sheet hidden" aria-live="polite"></section>
+
+    <section id="tutorialOverlay" class="tutorial-overlay hidden" aria-live="polite">
+      <div class="tutorial-card">
+        <span id="tutorialStep" class="tutorial-step">1 / 1</span>
+        <strong id="tutorialTitle">GUIDE</strong>
+        <p id="tutorialText"></p>
+        <div class="tutorial-actions">
+          <button id="tutorialSkipBtn" class="tutorial-ghost" type="button">SKIP</button>
+          <button id="tutorialNextBtn" class="tutorial-next" type="button">NEXT</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cameraOverlay" class="camera-overlay hidden">
+      <video id="cameraVideo" autoplay playsinline muted></video>
+      <canvas id="captureCanvas" class="hidden"></canvas>
+      <div class="camera-hud">
+        <button id="closeCameraBtn" class="icon-button">×</button>
+        <div id="cameraStatus">READY</div>
+      </div>
+      <footer class="camera-actions">
+        <button id="captureBtn" class="shutter-button">◉</button>
+        <button id="savePhotoBtn" class="primary-button hidden">LOAD & RETURN</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./vendor/leaflet.js"></script>
+  <script src="./demo-backend.js"></script>
+  <script src="./app.js?v=199"></script>
+  <script src="./demo-ui.js"></script>
+  <script src="../../return-links.js"></script>
+</body>
+</html>

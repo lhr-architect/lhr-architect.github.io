@@ -1,0 +1,11 @@
+#page-content { gap: 28px; }
+.design-story { max-width: 1050px; }
+.design-story video { display: block; width: 100%; height: auto; }
+.design-gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 36px 28px; align-items: start; }
+.design-gallery img { max-height: 680px; object-fit: contain; object-position: left; }
+.design-reflection p + p { margin-top: 24px; }
+.design-all-photos { margin-top: 32px; }
+.design-all-photos .design-gallery { margin-top: 28px; }
+@media(max-width:760px) { .design-gallery { grid-template-columns: 1fr; gap: 28px; } }
+/* Portrait and landscape videos keep their proportions inside a project page. */
+.design-story .story-video video { width: auto; max-width: 100%; max-height: 80vh; }
