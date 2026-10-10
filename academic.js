@@ -95,7 +95,7 @@
     document.title=`${d.cvTitle} | ${lang==='en'?'Haoran Liu':'刘浩然'}`;
     document.querySelector('#cv-back').textContent=d.back;
     document.querySelector('#print-cv').textContent=d.print;
-    document.querySelector('#cv-content').innerHTML=`<h1>${e(d.name)} <small>${e(d.chinese)}</small></h1><p>${e(d.affiliation)} · <a href="mailto:2401213545@stu.pku.edu.cn">2401213545@stu.pku.edu.cn</a></p><p>${e(d.intro)}</p><h2>${e(d.educationTitle)}</h2>${education(d)}<h2>${e(d.interestsTitle)}</h2>${d.interests.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}<h2>${e(d.researchTitle)}</h2>${d.research.map(x=>`<article class="cv-project"><p class="meta">${e(x[1])}</p><h3>${e(x[3])}</h3><p>${e(x[4])}</p><p>${e(x[5])}</p><p class="scope">${e(x[6])}</p></article>`).join('')}<h2>${e(d.pubTitle)}</h2>${papers(d)}<h2>${e(d.honoursTitle)}</h2><ul class="honours-list">${d.honours.map(x=>`<li>${e(x)}</li>`).join('')}</ul><h2>${e(d.moreTitle)}</h2>${d.more.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}<p class="meta">${e(d.updated)}</p>`;
+    document.querySelector('#cv-content').innerHTML=`<h1>${e(d.name)} <small>${e(d.chinese)}</small></h1><p>${e(d.affiliation)} · <a href="mailto:2401213545@stu.pku.edu.cn">2401213545@stu.pku.edu.cn</a></p><p>${e(d.intro)}</p><h2>${e(d.educationTitle)}</h2>${education(d)}<h2>${e(d.interestsTitle)}</h2>${d.interests.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}<h2>${e(d.researchTitle)}</h2>${d.research.map(x=>`<article class="cv-project"><p class="meta">${e(x[1])}</p><h3>${e(x[3])}</h3><p>${e(x[4])}</p><p>${e(x[5])}</p><p class="scope">${e(x[6])}</p></article>`).join('')}<h2>${e(d.pubTitle)}</h2>${papers(d)}<h2>${e(d.honoursTitle)}</h2><ul class="honours-list">${d.honours.map(x=>`<li>${e(x)}</li>`).join('')}</ul><h2>${e(d.moreTitle)}</h2>${d.more.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}`;
   }
   function render() {
     const d=window.PROFILE[lang];
@@ -127,7 +127,6 @@
     heading?.querySelectorAll('br').forEach(br=>br.replaceWith(' '));
     heading?.querySelector('.title-dot')?.remove();
     document.title=page==='home'?`${d.name} | ${lang==='en'?'Geography & Human Mobility':'地理学 · 人类移动'}`:`${heading?.textContent.replace(/\s+/g,' ').trim() || d.name} | ${lang==='en'?'Haoran Liu':'刘浩然'}`;
-    document.querySelector('#footer').innerHTML=`<a href="mailto:2401213545@stu.pku.edu.cn">2401213545@stu.pku.edu.cn</a><span>${e(d.updated)}</span>`;
   }
   let flipLayer = null;
   let flipAnimations = [];

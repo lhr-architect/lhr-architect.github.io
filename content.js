@@ -152,7 +152,6 @@ window.PROFILE = {
       ]
     ],
     "contactTitle": "Contact",
-    "updated": "Updated October 2026",
     "print": "Print / save as PDF",
     "cvTitle": "Academic profile",
     "back": "← Back to website",
@@ -555,7 +554,6 @@ window.PROFILE = {
       ]
     ],
     "contactTitle": "联系我",
-    "updated": "更新于 2026 年 10 月",
     "print": "打印 / 保存为 PDF",
     "cvTitle": "学术简历",
     "back": "← 返回个人官网",
