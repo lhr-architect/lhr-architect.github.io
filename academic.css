@@ -118,7 +118,9 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .profile-introduction h1 { margin: 0; font-size: 52px; font-weight: 500; letter-spacing: -.04em; line-height: 1.2; }
 .profile-introduction h1 span { margin-left: 14px; font-size: 20px; letter-spacing: 0; color: #555; }
 .profile-position { margin: 16px 0 28px; font-size: 20px; letter-spacing: -.025em; }
-.profile-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; margin-bottom: 64px; }
+/* The introduction and both rows below share one column split, so their edges line up down the page. */
+.profile-grid { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 80px; margin-bottom: 64px; }
+.profile-grid .education-item { grid-template-columns: 1fr; gap: 4px; }
 .profile-heading { margin: 0 0 24px; font-size: 24px; font-weight: 500; letter-spacing: -.025em; }
 .profile-interests { display: grid; gap: 20px; }
 .profile-interests h3, .compact-projects h3, .profile-contact h3 { margin: 0 0 6px; font-weight: 500; font-size: 16px; line-height: 1.5; }
@@ -166,14 +168,15 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
  .more-photo { max-width: 100%; }
 }
 /* Personal images; the research pages retain the restrained typography. */
-.profile-aside { max-width: 320px; justify-self: end; width: 100%; }
+.profile-aside, .profile-aside.hero-aside { width: 100%; max-width: none; }
 .profile-photo { margin: 0 0 26px; }
 .profile-photo img { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 65%; }
 .profile-photo figcaption { margin-top: 10px; font-size: 11px; color: #666; }
 .profile-introduction .academic-two-column { align-items: start; }
-.profile-aside p { font-size: 13px; margin-bottom: 12px; }
-.profile-aside .meta { font-size: 10px; }
-.profile-aside .text-links { margin-top: 18px; }
+.profile-cta { margin-top: 36px; padding-top: 24px; border-top: 1px solid #e2e2e2; }
+.profile-cta .meta { margin: 0 0 10px; font-size: 10px; }
+.profile-cta p { margin: 0; max-width: 46ch; font-size: 15px; line-height: 1.8; color: #111; }
+.profile-cta .text-links { margin-top: 18px; }
 .more-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin: 12px 0 92px; }
 .more-hero-copy h1 { font-size: clamp(56px,6.8vw,92px); font-weight: 500; letter-spacing: -.065em; line-height: .98; margin: 0; }
 .more-hero-copy .kicker { margin-bottom: 30px; }
@@ -197,7 +200,6 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 @media(max-width:1000px) {
  .more-hero { gap: 36px; }
  .portrait-composition { min-height: 380px; }
- .profile-aside { max-width: 260px; }
  .more-editorial article { gap: 40px; }
 }
 @media(max-width:760px) {
@@ -215,7 +217,7 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
  .more-editorial article { grid-template-columns: 1fr; gap: 14px; }
 }
 @media(prefers-reduced-motion:reduce) { .self-portrait { animation: none; } }
-.profile-introduction { display: grid; grid-template-columns: 1.4fr .6fr; gap: 80px; align-items: start; }
+.profile-introduction { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 80px; align-items: start; }
 .profile-main .prose { margin-top: 28px; }
 @media(max-width:1000px) { .profile-introduction { gap: 40px; } }
 @media(max-width:760px) { .profile-introduction { grid-template-columns: 1fr; gap: 28px; } }
