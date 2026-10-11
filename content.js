@@ -110,7 +110,6 @@ window.PROFILE = {
         "A Study on the Public Perception of Sports Spaces Under Urban Overpasses from the Perspective of Age Differences",
         "Wen, Z., Luo, X., Wang, X., & Liu, H.",
         "Land · 14(2), 293",
-        "Co-author · 4th author",
         "land-2025"
       ],
       [
@@ -118,7 +117,6 @@ window.PROFILE = {
         "The Evaluation and Optimization of Living Environment after the Renovation of Rural Dilapidated Housing: A Case of Jinan",
         "Wang, J., Ke, L., Zhao, X., & Liu, H.",
         "Urbanism and Architecture · 20(24), 66–69, 80",
-        "Co-author · 4th author",
         "rural-housing-2023"
       ],
       [
@@ -126,7 +124,6 @@ window.PROFILE = {
         "Exploration of Spatial Design Under Urban Overpasses in China",
         "Liu, H., Li, T., Li, L., & Wang, X.",
         "Urbanism and Architecture · 20(15), 9–13",
-        "First author · undergraduate review; title translated from Chinese",
         "underpasses-2023"
       ]
     ],
@@ -512,7 +509,6 @@ window.PROFILE = {
         "A Study on the Public Perception of Sports Spaces Under Urban Overpasses from the Perspective of Age Differences",
         "Wen, Z., Luo, X., Wang, X., & Liu, H.",
         "Land · 14(2), 293",
-        "合作作者 · 第四作者",
         "land-2025"
       ],
       [
@@ -520,7 +516,6 @@ window.PROFILE = {
         "农房危改后人居环境评价及优化——以济南市为例",
         "Wang, J., Ke, L., Zhao, X., & Liu, H.",
         "城市建筑 · 20(24), 66–69, 80",
-        "合作作者 · 第四作者",
         "rural-housing-2023"
       ],
       [
@@ -528,7 +523,6 @@ window.PROFILE = {
         "中国城市高架桥下空间设计探索",
         "Liu, H., Li, T., Li, L., & Wang, X.",
         "城市建筑 · 20(15), 9–13",
-        "第一作者 · 本科综述",
         "underpasses-2023"
       ]
     ],

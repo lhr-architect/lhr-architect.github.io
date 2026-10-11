@@ -43,6 +43,7 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .publication { display: grid; grid-template-columns: 60px 1fr; gap: 20px; margin-top: 28px; }
 .publication h3 { font-size: 16px; font-weight: 500; line-height: 1.65; margin: 0 0 8px; }
 .publication p { font-size: 12px; line-height: 1.75; color: #555; margin: 0 0 4px; }
+.publication strong { color: #111; font-weight: 600; }
 .interest-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 44px; }
 .interest-list h3 { font-size: 20px; font-weight: 500; letter-spacing: -.025em; line-height: 1.35; margin: 16px 0; }
 .notes-list { max-width: 930px; display: grid; gap: 36px; }

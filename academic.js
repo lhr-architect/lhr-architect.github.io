@@ -15,7 +15,9 @@
   const projectLink = (d,i) => `project-${d.researchRoutes[i]}.html`;
   const routes = ['index.html','research.html','thoughts.html','more.html'];
   const education = d => d.education.map(x=>`<article class="education-item"><span class="meta">${e(x[0])}</span><div><h3>${e(x[1])}</h3><p class="degree">${e(x[2])}</p><p>${e(x[3])}</p></div></article>`).join('');
-  const papers = d => d.pubs.map(x=>`<article class="publication"><span class="meta">${e(x[0])}</span><div><h3><a href="assets/papers/${e(x[5])}.pdf" target="_blank" rel="noopener">${e(x[1])} ↗</a></h3><p>${e(x[2])}</p><p>${e(x[3])} · ${e(x[4])}</p></div></article>`).join('');
+  // My own name is set in bold within each author list.
+  const authors = list => e(list).replace('Liu, H.','<strong>Liu, H.</strong>');
+  const papers = d => d.pubs.map(x=>`<article class="publication"><span class="meta">${e(x[0])}</span><div><h3><a href="assets/papers/${e(x[4])}.pdf" target="_blank" rel="noopener">${e(x[1])} ↗</a></h3><p>${authors(x[2])}</p><p>${e(x[3])}</p></div></article>`).join('');
   const sectionTitle = text => `<h2 class="profile-heading">${e(text)}</h2>`;
   const pageHeader = (title,intro,back) => `${back?`<a class="back-link" href="${back[0]}">${e(back[1])}</a>`:''}<header class="page-heading"><h1>${e(title)}</h1>${intro?`<p>${e(intro)}</p>`:''}</header>`;
   const proseSections = rows => rows.map(x=>`<section><h2>${e(x[0])}</h2><p>${e(x[1])}</p></section>`).join('');
