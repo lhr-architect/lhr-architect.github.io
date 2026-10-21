@@ -398,7 +398,7 @@ window.PROFILE = {
       }
     },
     "path": {
-      "title": "Development path"
+      "title": "my “MAP”"
     }
   },
   "zh": {
@@ -800,7 +800,7 @@ window.PROFILE = {
       }
     },
     "path": {
-      "title": "发展脉络"
+      "title": "my “MAP”"
     }
   }
 };
