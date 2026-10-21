@@ -21,15 +21,26 @@
   const sectionTitle = text => `<h2 class="profile-heading">${e(text)}</h2>`;
   const pageHeader = (title,intro,back) => `${back?`<a class="back-link" href="${back[0]}">${e(back[1])}</a>`:''}<header class="page-heading"><h1>${e(title)}</h1>${intro?`<p>${e(intro)}</p>`:''}</header>`;
   const proseSections = rows => rows.map(x=>`<section><h2>${e(x[0])}</h2><p>${e(x[1])}</p></section>`).join('');
-  // The development path from the slide deck: three stages on wide screens, read top to bottom on phones.
+  // The development path, drawn exactly as slide 1 of the deck (path-layout.js): every text box sits at its
+  // slide position on a 2:1 canvas, and font sizes scale with the canvas width (1500 pt slide = 100cqw).
   function pathMap(d) {
-    const p = d.path;
-    const item = (cls,col,row,order,html) => `<div class="path-${cls}" style="grid-column:${col};grid-row:${row};--order:${order}">${html}</div>`;
-    const list = xs => `<ul>${xs.map(x=>`<li>${e(x)}</li>`).join('')}</ul>`;
-    const training = t => t.map(x=>`<p class="path-training"><strong>${e(x[0])}</strong> <span${x[2]?' class="path-accent"':''}>${e(x[1])}</span></p>`).join('');
-    const work = (text,href) => href ? `<a href="${href}">${e(text)} ↗</a>` : e(text);
-    const streams = p.streams.map(g=>`<div class="path-group${g.strong?' is-strong':''}${g.muted?' is-muted':''}"><p class="path-group-label">${e(g.label)}</p><div>${g.rows.map(r=>`<div class="path-row"><span class="path-sub">${e(r[0])}</span><span class="path-work">${work(r[1],r[2])}</span></div>`).join('')}</div></div>`).join('');
-    return `<section class="path-section">${sectionTitle(p.title)}<div class="path-grid">${p.stages.map((x,i)=>item('stage',i+1,1,i*10+1,e(x))).join('')}${item('from','1 / 3',2,0,`<span>${e(p.from)}</span><span class="path-dots" aria-hidden="true"></span>`)}${item('to',3,2,0,e(p.to))}${p.training.map((t,i)=>item('trainings',i+1,3,i*10+2,training(t))).join('')}${item('body is-first',1,4,3,`${list(p.questions)}<p class="path-outcomes">${p.outcomes.map(x=>e(x)).join('<br>')}</p>`)}${item('body',2,4,13,streams)}${item('body',3,4,23,list(p.phdQuestions))}${item('takeaway',1,5,4,`<p>${e(p.takeaways[0][0])}</p>${list(p.takeaways[0].slice(1))}`)}${item('takeaway',2,5,14,list(p.takeaways[1]))}${item('takeaway is-goal',3,5,24,`<p>${e(p.goal)}</p>`)}</div></section>`;
+    const L = window.PATH_LAYOUT;
+    if (!L) return '';
+    const pt = v => `${(v/15).toFixed(4)}cqw`;
+    const align = {l:'left',ctr:'center',r:'right'};
+    const run = r => `<span style="font-size:${pt(r.size)};font-weight:${r.bold?700:400};color:${r.color}">${e(r.t)}</span>`;
+    const para = p => `<p style="text-align:${align[p.align]||'left'};font-size:${pt(p.size)}">${p.runs.length?p.runs.map(run).join(''):'&nbsp;'}</p>`;
+    const boxes = L.boxes.map(b => {
+      const text = b[lang].map(para).join('');
+      return `<div class="path-box" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;justify-content:${b.anchor==='ctr'?'center':'flex-start'}">${b.link?`<a href="${b.link}">${text}</a>`:text}</div>`;
+    }).join('');
+    const X = v => (v*20).toFixed(2), Y = v => (v*10).toFixed(2), stroke = (L.stroke*20).toFixed(2);
+    const dots = L.dots.map(([x,y]) => `<circle cx="${X(x)}" cy="${Y(y)}" r="1.5" fill="#111111"/>`).join('');
+    const lines = L.lines.map(([x,y,w,h,c]) => `<line x1="${X(x)}" y1="${Y(y+h/2)}" x2="${X(x+w)}" y2="${Y(y+h/2)}" stroke="${c}" stroke-width="${stroke}"/>`).join('');
+    const heads = L.heads.map(([x,y,w,h,c]) => `<polyline points="${X(x)},${Y(y)} ${X(x+w)},${Y(y+h/2)} ${X(x)},${Y(y+h)}" fill="none" stroke="${c}" stroke-width="${stroke}"/>`).join('');
+    const braces = L.braces.map(([x,y,w,h,c]) => { const l=X(x), m=X(x+w/2), r=X(x+w), at=f=>Y(y+h*f);
+      return `<path d="M${r},${at(0)} Q${m},${at(0)} ${m},${at(.0857)} L${m},${at(.4143)} Q${m},${at(.5)} ${l},${at(.5)} Q${m},${at(.5)} ${m},${at(.5857)} L${m},${at(.9143)} Q${m},${at(1)} ${r},${at(1)}" fill="none" stroke="${c}" stroke-width="${stroke}"/>`; }).join('');
+    return `<section class="path-section">${sectionTitle(d.path.title)}<div class="path-scroll"><div class="path-slide"><svg viewBox="0 0 2000 1000" aria-hidden="true">${dots}${lines}${heads}${braces}</svg>${boxes}</div></div></section>`;
   }
   function home(d) {
     return `<section class="profile-introduction"><div class="profile-main"><h1>${e(d.name)} <span>${e(d.chinese)}</span></h1><p class="profile-position">${lang==='en'?'Geography · Human mobility & spatial interaction':'地理学 · 人类移动与空间交互'}</p><div class="prose"><p class="lead">${e(d.intro)}</p><p>${e(d.aboutText)}</p></div><div class="profile-cta"><p class="meta">${lang==='en'?'PHD APPLICATION':'博士申请'}</p><p>${e(d.phd)}</p><div class="text-links"><a href="cv.html?lang=${lang}">${e(d.cv)}</a><a href="mailto:2401213545@stu.pku.edu.cn">Contact</a></div></div></div><aside class="hero-aside profile-aside"><figure class="profile-photo"><img src="assets/personal/portrait.png" alt="${lang==='en'?'Haoran Liu outdoors with a camera':'拿着相机的刘浩然'}" width="836" height="1204"></figure></aside></section>
