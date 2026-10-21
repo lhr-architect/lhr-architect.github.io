@@ -20,6 +20,11 @@
     const button = document.querySelector('#language');
     button.textContent = lang === 'en' ? '中文' : 'EN';
     button.setAttribute('aria-label', lang === 'en' ? 'Switch to Chinese' : '切换为英文');
+    // Images that have a Chinese edition (the Construction Log cover) follow the language too.
+    document.querySelectorAll('img[data-src-zh]').forEach(image => {
+      image.src = lang === 'zh' ? image.dataset.srcZh : image.dataset.srcEn;
+      image.alt = lang === 'zh' ? image.dataset.altZh : image.dataset.altEn;
+    });
     document.querySelectorAll('[data-return-en]').forEach(link => {
       link.textContent = lang === 'zh' ? link.dataset.returnZh : link.dataset.returnEn;
     });
