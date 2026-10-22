@@ -34,8 +34,24 @@ window.PROFILE = {
       ],
       [
         "mobility",
-        "COLLABORATIVE RESEARCH · DEC 2025",
+        "RESEARCH INTEREST",
         "02",
+        "Rebuilding daily life after losing one’s anchor",
+        "How is daily mobility rebuilt after people lose familiar places? Which mobility regularities travel with the person and which are tied to long-term bonds with places? How long does rebuilding take, what sets its pace, and how do individual rebuilds add up to city-level recovery?",
+        "",
+        "Understanding human mobility: which regularities travel with the person and which are tied to people’s bonds with places. Environment and design: what kinds of environments help people regain their daily lives.",
+        [
+          "Anchor change",
+          "Daily routines",
+          "Displacement and return"
+        ],
+        "Significance",
+        "rebuild"
+      ],
+      [
+        "mobility",
+        "COLLABORATIVE RESEARCH · DEC 2025",
+        "03",
         "Geographic manifolds: facility siting and uniformity tests",
         "Distance-decay models that assume homogeneous space may obscure local structure. Can a city’s latent spatial structure instead be inferred from human flows without prespecifying a distance function?",
         "Spatial data processing (GIS, Python); facility-siting optimisation and manifold-embedding visualisation; statistical tests. In the roadmap, red frames mark my parts: local neighbourhoods and locality tiling, coverage redundancy and the uniformity test.",
@@ -51,7 +67,7 @@ window.PROFILE = {
       [
         "mobility",
         "COLLABORATIVE RESEARCH · FEB 2026",
-        "03",
+        "04",
         "Intercity migration estimation in Kazakhstan",
         "How can intercity migration flows be estimated where direct migration records are unavailable?",
         "Integrated a destination-constrained gravity model and implemented the genetic-algorithm workflow; prepared cross-country datasets; conducted diagnostic experiments.",
@@ -67,7 +83,7 @@ window.PROFILE = {
       [
         "governance",
         "INDEPENDENT PROJECT · FEB 2025",
-        "04",
+        "05",
         "12345 citizen-service requests: classification and semantic analysis",
         "How can overlapping departmental responsibilities be analysed to support the routing of citizen-service requests?",
         "Led data liaison, cleaning, question formulation and reporting. Used LLM extraction, text embeddings and dimensionality reduction to build an observed–mandated semantic framework.",
@@ -83,7 +99,7 @@ window.PROFILE = {
       [
         "mobility",
         "RESEARCH PROJECT · AUG 2026",
-        "05",
+        "06",
         "Village functions and mobility roles in Shanghai: selective coupling (FT–NT)",
         "How do rural territorial functions correspond to mobility-network roles in a highly urbanised metropolis?",
         "Spatial data processing (QGIS, Python); integration of mobile-phone signalling and multisource data; classification and tests of associations between types; Bayesian hierarchical regression.",
@@ -181,6 +197,7 @@ window.PROFILE = {
     ],
     "researchRoutes": [
       "thesis",
+      "rebuild",
       "manifold",
       "migration",
       "governance",
@@ -288,6 +305,7 @@ window.PROFILE = {
     ],
     "projectNotes": [
       "Hold the environment and available information set fixed, control for information supplied by the environment and observations, and distinguish gains from a regularity’s functional form from gains supplied by external parameters.",
+      "Treat a change of life anchor, such as one’s home, as a perturbation experiment. Daily mobility is seen as the joint result of personal traits that travel with the person, place memory that is tied to places and must be rebuilt after a move, and the environment a place offers. Method rehearsals on everyday trajectory data identify short trips away from home and moves, and compare daily routines before and after. The main planned scenario is displacement and return after disasters, comparing rebuilding by prior familiarity with the new place and relating individual return probabilities to aggregate recovery curves.",
       "Define proximity through flow strength, identify bounded local neighbourhoods, and examine whether they form a low-dimensional space. Use embedding and facility siting to assess its applicability relative to geographic coordinates.",
       "Use urban population statistics and spatial-interaction regularities as soft constraints in a regularity-violation loss, combining a gravity model with a genetic algorithm. Calibrate and test on US data, conduct a blind test on French data, and apply the framework to Kazakhstan.",
       "Use LLMs to represent handled requests and statutory responsibilities in a shared semantic space, identifying overlaps, deviations and gaps between actual practice and formal mandates.",
@@ -433,8 +451,24 @@ window.PROFILE = {
       ],
       [
         "mobility",
-        "合作研究 · 2025年12月",
+        "研究兴趣",
         "02",
+        "失锚之后：个体日常的重建",
+        "人失去熟悉的地方之后，日常移动怎样重建？哪些移动规律随人携带，哪些依附于人与地方的长期联系？重建要多久、快慢取决于什么，个人的重建又怎样汇总为城市的恢复？",
+        "",
+        "理解人类移动的机制：哪些移动规律随人携带，哪些依附于人与地方的联系。环境与设计：什么样的环境，能让人更好地重拾日常。",
+        [
+          "锚点变化",
+          "日常重建",
+          "流离与回迁"
+        ],
+        "研究价值",
+        "rebuild"
+      ],
+      [
+        "mobility",
+        "合作研究 · 2025年12月",
+        "03",
         "地理流形上的设施选址与均匀性检验",
         "普适距离衰减模型对均质空间的预设可能掩盖局地结构。能否不预设距离函数，而由人的流动构造并识别城市的内在空间？",
         "空间数据处理（GIS、Python）；选址优化、流形嵌入制图；统计检验。路线图中红框为我负责的部分：局部邻域与局域拼合、覆盖冗余与均匀性检验。",
@@ -450,7 +484,7 @@ window.PROFILE = {
       [
         "mobility",
         "合作研究 · 2026年2月",
-        "03",
+        "04",
         "哈萨克斯坦城际人口迁移估算",
         "在缺乏城市间真实迁移记录的情况下，如何估算城市之间的人口迁移流？",
         "工程化（目的地约束重力模型接入、遗传算法）、跨国数据整理、诊断实验。",
@@ -466,7 +500,7 @@ window.PROFILE = {
       [
         "governance",
         "独立项目 · 2025年2月",
-        "04",
+        "05",
         "12345 政务工单分类优化与语义空间分析",
         "城市投诉工单涉及多部门职责交叉，如何为市民热线工单的分派提供分析依据？",
         "独立完成数据对接、清洗、问题定义与汇报，以 LLM 结构化抽取、文本嵌入和降维构建“实然—应然”语义框架。",
@@ -482,7 +516,7 @@ window.PROFILE = {
       [
         "mobility",
         "研究项目 · 2026年8月",
-        "05",
+        "06",
         "上海行政村地域功能与人口流动角色的选择性耦合（FT–NT）",
         "在高度城市化的大都市中，乡村的地域功能与人口流动网络角色如何对应？",
         "空间数据处理（QGIS、Python）、手机信令与多源数据整合；分类与类型对应关系的检验；贝叶斯层级回归。",
@@ -580,6 +614,7 @@ window.PROFILE = {
     ],
     "researchRoutes": [
       "thesis",
+      "rebuild",
       "manifold",
       "migration",
       "governance",
@@ -687,6 +722,7 @@ window.PROFILE = {
     ],
     "projectNotes": [
       "在固定环境与可用信息集的前提下，控制环境和观测数据本身提供的信息，区分规律形式增益与外部参数增益。",
+      "把生活锚点（如住处）的改变当作扰动实验。日常移动被看作三个来源共同作用的结果：随人携带的个人特质，依附于地方、失锚后需要重建的人地记忆，以及地方提供的环境。先在常态轨迹数据上做方法演练，识别短期离家与搬家等锚点变化，比较前后的日常；主要场景计划为灾后流离与回迁，按对新地方的事先熟悉度比较重建过程，并把个人的回来概率与聚合恢复曲线联系起来。",
       "以流动强弱定义地点之间的远近，识别边界清晰的局部范围，考察其能否拼合为低维空间；通过嵌入还原与设施选址，检验其相对于地理坐标的适用性。",
       "将城市人口统计与空间交互规律作为软约束，构建“规律违反度”损失函数，结合重力模型与遗传算法估算净迁移流；利用美国数据标定与检验，以法国数据作盲测，再应用于哈萨克斯坦。",
       "利用 LLM 将实际办件与法定职责转化到同一文本语义空间，对照实际执行与制度职责之间的重叠、偏移和空白。",
