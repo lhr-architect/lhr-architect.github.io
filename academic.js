@@ -55,7 +55,10 @@
     const i = d.researchRoutes.indexOf(slug);
     const x = d.research[i];
     if (!x) return home(d);
-    return `${pageHeader(x[3],x[1],['research.html',d.backResearch])}<article class="article-prose"><section><h2>${e(d.questionLabel)}</h2><p class="article-lead">${e(x[4])}</p></section><section><h2>${e(d.contribution)}</h2><p>${e(x[5])}</p></section><section><h2>${lang==='en'?'Approach & observations':'研究思路与认识'}</h2><p>${e(d.projectNotes[i])}</p></section><section><h2>${e(d.status)}</h2><p>${e(x[6])}</p></section></article><nav class="related-links" aria-label="Related research"><span class="meta">${e(d.projectFooter)}</span>${d.research.map((y,j)=>j!==i?`<a href="${projectLink(d,j)}">${e(y[3])} ↗</a>`:'').join('')}</nav>`;
+    // x: [category, label, number, title, question, contribution, outcome, tags, outcome heading, roadmap image]
+    const figure = x[9] ? `<section><figure class="research-figure"><a href="assets/research/${x[9]}-${lang}.png" target="_blank" rel="noopener"><img src="assets/research/${x[9]}-${lang}.png" alt="${e(`${d.figureCaption} · ${x[3]}`)}"></a><figcaption>${e(d.figureCaption)}</figcaption></figure></section>` : '';
+    const contribution = x[5] ? `<section><h2>${e(d.contribution)}</h2><p>${e(x[5])}</p></section>` : '';
+    return `${pageHeader(x[3],x[1],['research.html',d.backResearch])}<article class="article-prose"><section><h2>${e(d.questionLabel)}</h2><p class="article-lead">${e(x[4])}</p></section>${figure}<section><h2>${e(d.approach)}</h2><p>${e(d.projectNotes[i])}</p></section>${contribution}<section><h2>${e(x[8])}</h2><p>${e(x[6])}</p></section></article><nav class="related-links" aria-label="Related research"><span class="meta">${e(d.projectFooter)}</span>${d.research.map((y,j)=>j!==i?`<a href="${projectLink(d,j)}">${e(y[3])} ↗</a>`:'').join('')}</nav>`;
   }
   function thoughts(d) {
     return `${pageHeader(d.nav[2],d.notesLead,['more.html',d.backMore])}<div class="topic-index">${d.thoughts.map((x,i)=>`<article><span class="meta">0${i+1}</span><div><h2><a href="thought-${x[0]}.html">${e(x[1])} ↗</a></h2><p>${e(x[2])}</p></div></article>`).join('')}</div>`;
@@ -119,7 +122,7 @@
     document.title=`${d.cvTitle} | ${lang==='en'?'Haoran Liu':'刘浩然'}`;
     document.querySelector('#cv-back').textContent=d.back;
     document.querySelector('#print-cv').textContent=d.print;
-    document.querySelector('#cv-content').innerHTML=`<h1>${e(d.name)} <small>${e(d.chinese)}</small></h1><p>${e(d.affiliation)} · <a href="mailto:2401213545@stu.pku.edu.cn">2401213545@stu.pku.edu.cn</a></p><p>${e(d.intro)}</p><h2>${e(d.educationTitle)}</h2>${education(d)}<h2>${e(d.interestsTitle)}</h2>${d.interests.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}<h2>${e(d.researchTitle)}</h2>${d.research.map(x=>`<article class="cv-project"><p class="meta">${e(x[1])}</p><h3>${e(x[3])}</h3><p>${e(x[4])}</p><p>${e(x[5])}</p><p class="scope">${e(x[6])}</p></article>`).join('')}<h2>${e(d.pubTitle)}</h2>${papers(d)}<h2>${e(d.honoursTitle)}</h2><ul class="honours-list">${d.honours.map(x=>`<li>${e(x)}</li>`).join('')}</ul><h2>${e(d.moreTitle)}</h2>${d.more.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}`;
+    document.querySelector('#cv-content').innerHTML=`<h1>${e(d.name)} <small>${e(d.chinese)}</small></h1><p>${e(d.affiliation)} · <a href="mailto:2401213545@stu.pku.edu.cn">2401213545@stu.pku.edu.cn</a></p><p>${e(d.intro)}</p><h2>${e(d.educationTitle)}</h2>${education(d)}<h2>${e(d.interestsTitle)}</h2>${d.interests.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}<h2>${e(d.researchTitle)}</h2>${d.research.map(x=>`<article class="cv-project"><p class="meta">${e(x[1])}</p><h3>${e(x[3])}</h3><p>${e(x[4])}</p>${x[5]?`<p>${e(x[5])}</p>`:''}<p class="scope">${e(x[6])}</p></article>`).join('')}<h2>${e(d.pubTitle)}</h2>${papers(d)}<h2>${e(d.honoursTitle)}</h2><ul class="honours-list">${d.honours.map(x=>`<li>${e(x)}</li>`).join('')}</ul><h2>${e(d.moreTitle)}</h2>${d.more.map(x=>`<h3>${e(x[0])}</h3><p>${e(x[1])}</p>`).join('')}`;
   }
   function render() {
     const d=window.PROFILE[lang];

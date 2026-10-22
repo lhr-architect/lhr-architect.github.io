@@ -335,3 +335,6 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .path-box p { margin: 0; line-height: 1.15; text-wrap: pretty; }
 .path-box a { color: inherit; text-decoration: none; }
 .path-box a:hover span { text-decoration: underline; text-underline-offset: .2em; }
+.research-figure { margin: 0; }
+.research-figure img { display: block; width: 100%; height: auto; }
+.research-figure figcaption { margin-top: 10px; font-size: 13px; color: #777; }

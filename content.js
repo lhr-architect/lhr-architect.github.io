@@ -6,7 +6,7 @@ window.PROFILE = {
       "Thoughts",
       "More about me"
     ],
-    "intro": "I am a master’s student in Geography at Peking University, advised by Liyan Xu. My research focuses on human mobility and spatial interaction, especially what we can infer about urban movement when observations are incomplete or spatially aggregated.",
+    "intro": "I am a master’s student in Geography at Peking University, advised by Liyan Xu. My research focuses on human mobility and spatial interaction. My master’s thesis asks how much known individual mobility regularities can add when trajectories are incomplete.",
     "phd": "Seeking PhD opportunities in human mobility, spatial interaction and computational urban research.",
     "cv": "CV download",
     "affiliation": "Peking University · Geography",
@@ -18,91 +18,86 @@ window.PROFILE = {
     "research": [
       [
         "mobility",
-        "ONGOING · PERSONAL RESEARCH",
+        "MASTER’S THESIS · ONGOING",
         "01",
-        "Within-city OD spatial super-resolution",
-        "How much fine-grained movement structure can be recovered from aggregated OD data?",
-        "Reviewing and reproducing mobility research; measuring 16 families of regularities across cities; defining observation equations, constraints and evaluation.",
-        "Methods in exploration; no fully benchmarked reconstruction model yet.",
+        "Information gain from individual mobility regularities",
+        "How much additional information do known individual mobility regularities, such as exploration and return, distance decay and temporal rhythms, provide for trajectory completion? Under which gap lengths and spatial resolutions are they useful?",
+        "",
+        "Evaluate the information gain and limits of different regularities under comparable conditions, providing a verifiable basis for incorporating mobility regularities into algorithms.",
         [
-          "OD reconstruction",
-          "Cross-city comparison",
-          "Spatial interaction"
-        ]
+          "Trajectory completion",
+          "Mobility regularities",
+          "Information gain"
+        ],
+        "Significance",
+        "thesis"
       ],
       [
         "mobility",
-        "INDEPENDENT EXPLORATION · 2026",
+        "COLLABORATIVE RESEARCH · DEC 2025",
         "02",
-        "Post-earthquake mobility gap filling",
-        "Reconstructing 58 missing days of daily OD following the Noto earthquake.",
-        "Reframed the task as time interpolation and spatial share allocation. Audited observation and anonymisation rules; compared candidates across 135 sliding pseudo-gaps.",
-        "Produced daily-conserving predictions that passed a local validator. Official ranking and hidden-test performance are not established.",
+        "Geographic manifolds: facility siting and uniformity tests",
+        "Distance-decay models that assume homogeneous space may obscure local structure. Can a city’s latent spatial structure instead be inferred from human flows without prespecifying a distance function?",
+        "Spatial data processing (GIS, Python); facility-siting optimisation and manifold-embedding visualisation; statistical tests. In the roadmap, red frames mark my parts: local neighbourhoods and locality tiling, coverage redundancy and the uniformity test.",
+        "Human mobility networks lie on manifolds of dimension at most five, with detectable local neighbourhoods. Optimal facility layouts exhibit uniform local order when measured in manifold space.",
         [
-          "HuMob 2026",
-          "Pseudo-gap validation",
-          "Conservation"
-        ]
-      ],
-      [
-        "mobility",
-        "COLLABORATIVE RESEARCH · 2025–2026",
-        "03",
-        "Facility siting on mobility manifolds",
-        "Does a mobility-based representation change how we assess facility distribution?",
-        "Deployed collaborators’ embedding code, implemented greedy maximum-coverage siting, and introduced a Q uniformity measure with Monte Carlo baselines for Figure 4.",
-        "Contributing co-author (7th); embedding core developed by collaborators. Listed here as research, not a published paper.",
-        [
-          "Network representation",
+          "Manifold",
           "Facility location",
-          "Monte Carlo"
-        ]
+          "Uniformity test"
+        ],
+        "Findings",
+        "manifold"
       ],
       [
         "mobility",
-        "RESEARCH CONTRIBUTION · 2025–2026",
-        "04",
-        "Inter-city migration with limited ground truth",
-        "Estimating city-to-city migration where direct flow observations are unavailable.",
-        "Engineered genetic-algorithm workflows, organised US, French and Kazakh data, and diagnosed target and validation problems. Introduced PPML fixed-effects gravity and destination-constrained alternatives.",
-        "Research execution and methodological diagnosis; not an independently originated project.",
+        "COLLABORATIVE RESEARCH · FEB 2026",
+        "03",
+        "Intercity migration estimation in Kazakhstan",
+        "How can intercity migration flows be estimated where direct migration records are unavailable?",
+        "Integrated a destination-constrained gravity model and implemented the genetic-algorithm workflow; prepared cross-country datasets; conducted diagnostic experiments.",
+        "A net intercity migration estimation framework for settings without migration ground truth, a city-level Kazakhstan dataset, and reusable estimation code.",
         [
           "Migration",
-          "PPML",
-          "Model diagnostics"
-        ]
+          "Gravity model",
+          "Genetic algorithm"
+        ],
+        "Outputs",
+        "migration"
       ],
       [
         "governance",
-        "INDEPENDENT PROJECT · 2025–2026",
-        "05",
-        "Civic requests & institutional responsibilities",
-        "Comparing what government departments actually handle with their statutory mandates.",
+        "INDEPENDENT PROJECT · FEB 2025",
+        "04",
+        "12345 citizen-service requests: classification and semantic analysis",
+        "How can overlapping departmental responsibilities be analysed to support the routing of citizen-service requests?",
         "Led data liaison, cleaning, question formulation and reporting. Used LLM extraction, text embeddings and dimensionality reduction to build an observed–mandated semantic framework.",
-        "Analysis framework, vocabulary and reports; no deployed dispatch system. Comparability of data scopes remains a limitation.",
+        "A request-routing diagnostic framework covering functional domains, anomalous distributions and intersecting responsibilities.",
         [
           "LLM extraction",
           "Semantic space",
           "Urban governance"
-        ]
+        ],
+        "Output",
+        "governance"
       ],
       [
         "mobility",
-        "MANUSCRIPT DRAFT · 2026",
-        "06",
-        "Village functions & mobility roles in Shanghai",
-        "Do territorial attributes describe how villages are used within a regional network?",
-        "Second author and main contributor to analysis and drafting for 1,555 villages. Independently classified functions and flow roles; implemented resampling, Bayesian multilevel modelling and spatial diagnostics.",
-        "Evidence supports selective association, not causality. Manuscript prepared; submission or publication not established.",
+        "RESEARCH PROJECT · AUG 2026",
+        "05",
+        "Village functions and mobility roles in Shanghai: selective coupling (FT–NT)",
+        "How do rural territorial functions correspond to mobility-network roles in a highly urbanised metropolis?",
+        "Spatial data processing (QGIS, Python); integration of mobile-phone signalling and multisource data; classification and tests of associations between types; Bayesian hierarchical regression.",
+        "Connect rural multifunctionality and relational rural geography within a common village-level framework to inform differentiated rural governance.",
         [
           "1,555 villages",
-          "Bayesian modelling",
-          "Network roles"
-        ]
+          "Mobility networks",
+          "Bayesian modelling"
+        ],
+        "Significance",
+        "villages"
       ]
     ],
-    "contribution": "My contribution",
-    "status": "Status & scope",
+    "contribution": "My contributions",
     "pubTitle": "Publications",
     "pubs": [
       [
@@ -160,7 +155,7 @@ window.PROFILE = {
       ],
       [
         "Inference from incomplete observations",
-        "Which structures remain identifiable when mobility observations are coarse, sparse or missing? My current focus is within-city OD spatial super-resolution and the informational value of empirical regularities."
+        "Which structures remain identifiable when mobility observations are sparse or missing? My master’s thesis evaluates the information gain of individual mobility regularities in trajectory completion."
       ],
       [
         "Knowledge for urban practice",
@@ -185,8 +180,7 @@ window.PROFILE = {
       ]
     ],
     "researchRoutes": [
-      "od",
-      "noto",
+      "thesis",
       "manifold",
       "migration",
       "governance",
@@ -254,8 +248,10 @@ window.PROFILE = {
     "honours": [
       "National Scholarship · 2022",
       "Outstanding Graduate of Shandong Province · 2024",
-      "Peking University Challenge Cup Grand Prize · 2025",
-      "Peking University Academic Scholarship · 2025"
+      "Grand Prize, Peking University Challenge Cup · 2025",
+      "Peking University Academic Scholarship and Merit Student Award · 2025",
+      "National First Prize, Undergraduate Innovation and Entrepreneurship Training Program",
+      "Individual Award and 4th Place (Team), Florence Underwater Rugby Tournament · 2026"
     ],
     "backResearch": "← All research projects",
     "backThoughts": "← All thoughts",
@@ -291,12 +287,11 @@ window.PROFILE = {
       ]
     ],
     "projectNotes": [
-      "The fine-grained OD is the unknown state; the observations are spatial aggregates of it. Multiple fine-grained matrices can generate the same aggregates. The next methodological step is to specify what each candidate regularity contributes and evaluate it against meaningful baselines.",
-      "The task is temporal gap filling, distinct from the spatial super-resolution topic. The final workflow separates daily totals from spatial shares. Expanding pseudo-gap validation led me to withdraw a complex recovery curve whose gains were not stable.",
-      "My contribution focused on facility siting and evaluation, rather than development of the embedding core. Random reference distributions make a uniformity score interpretable; comparison also requires attention to the boundaries used for sampling.",
-      "This work trained me to examine data definitions, proxy targets and validation separately. After diagnosing errors and limitations in the original workflow, I helped reorganise estimation around gravity-model alternatives rather than treating optimisation loss as proof of accuracy.",
-      "The framework distinguishes observed handling of citizen requests from mandated departmental responsibilities. The two sides must have comparable scope before differences in semantic distributions can be interpreted as institutional discrepancies.",
-      "Village territorial functions and mobility-network roles were measured independently. Association and adjusted probabilities were examined through resampling and multilevel models. The evidence is cross-sectional and does not identify causal mechanisms."
+      "Hold the environment and available information set fixed, control for information supplied by the environment and observations, and distinguish gains from a regularity’s functional form from gains supplied by external parameters.",
+      "Define proximity through flow strength, identify bounded local neighbourhoods, and examine whether they form a low-dimensional space. Use embedding and facility siting to assess its applicability relative to geographic coordinates.",
+      "Use urban population statistics and spatial-interaction regularities as soft constraints in a regularity-violation loss, combining a gravity model with a genetic algorithm. Calibrate and test on US data, conduct a blind test on French data, and apply the framework to Kazakhstan.",
+      "Use LLMs to represent handled requests and statutory responsibilities in a shared semantic space, identifying overlaps, deviations and gaps between actual practice and formal mandates.",
+      "Independently classify territorial functions and mobility roles for 1,555 administrative villages using inter-village flows, then examine their relationships through association analysis, resampling tests and hierarchical regression."
     ],
     "gameMedia": {
       "title": "Park U Go — a campus game",
@@ -399,7 +394,9 @@ window.PROFILE = {
     },
     "path": {
       "title": "my “MAP”"
-    }
+    },
+    "approach": "Approach",
+    "figureCaption": "Research roadmap"
   },
   "zh": {
     "nav": [
@@ -408,7 +405,7 @@ window.PROFILE = {
       "想法与理解",
       "More about me"
     ],
-    "intro": "我是刘浩然，北京大学地理学硕士研究生，导师为许立言。当前研究关注人类移动与空间交互，尤其是观测不完整或空间粒度较粗时，我们能够如何推断城市中的移动结构。",
+    "intro": "我是刘浩然，北京大学地理学硕士研究生，导师为许立言。当前研究关注人类移动与空间交互；硕士论文探讨在轨迹不完整时，已知的个体移动规律能够额外提供多少信息。",
     "phd": "正在寻找人类移动、空间交互与计算城市研究方向的博士机会。",
     "cv": "CV download",
     "affiliation": "北京大学 · 地理学",
@@ -420,91 +417,86 @@ window.PROFILE = {
     "research": [
       [
         "mobility",
-        "进行中 · 个人主线课题",
+        "硕士毕业论文 · 在研",
         "01",
-        "城市内部 OD 空间超分",
-        "从聚合 OD 数据中，能够恢复多少细粒度移动结构？",
-        "阅读并复现人类移动研究，跨城市测量 16 类规律，明确观测方程、候选约束与评价体系。",
-        "仍处于方法探索阶段，尚未形成经过充分基准验证的恢复模型。",
+        "个体移动规律的信息增益",
+        "已知的个体移动规律，如探索—回访、距离衰减与时间节律等，在轨迹补全中能够额外提供多少信息，在何种缺口长度与空间分辨率下有效？",
+        "",
+        "在可比较的条件下评估不同规律的信息增益与有效边界，为算法引入规律提供可核对的依据。",
         [
-          "OD 重构",
-          "跨城比较",
-          "空间交互"
-        ]
+          "轨迹补全",
+          "移动规律",
+          "信息增益"
+        ],
+        "研究意义",
+        "thesis"
       ],
       [
         "mobility",
-        "独立探索 · 2026",
+        "合作研究 · 2025年12月",
         "02",
-        "地震后移动数据的时间补全",
-        "补全能登地震后缺失的连续 58 天逐日 OD。",
-        "将任务重述为时间内插与空间份额分配，核对观测与匿名化口径，以 135 个滑动伪缺口比较候选方案。",
-        "形成满足逐日守恒并通过本地验证器的预测文件；未核实正式排名及隐藏真值表现。",
+        "地理流形上的设施选址与均匀性检验",
+        "普适距离衰减模型对均质空间的预设可能掩盖局地结构。能否不预设距离函数，而由人的流动构造并识别城市的内在空间？",
+        "空间数据处理（GIS、Python）；选址优化、流形嵌入制图；统计检验。路线图中红框为我负责的部分：局部邻域与局域拼合、覆盖冗余与均匀性检验。",
+        "人类移动网络位于维数至多为 5 的低维流形上，“局地”是其中可检测的几何实体；采用流形空间度量时，设施选址的最优解呈现均匀的局地秩序。",
         [
-          "HuMob 2026",
-          "伪缺口验证",
-          "守恒约束"
-        ]
-      ],
-      [
-        "mobility",
-        "合作研究 · 2025–2026",
-        "03",
-        "移动流形上的设施选址",
-        "基于移动网络的空间表示，是否改变设施分布的评价？",
-        "部署合作者提供的嵌入代码，实现贪心最大覆盖选址，引入 Q 均匀性指标与蒙特卡洛基准，完成 Fig. 4。",
-        "合作作者（第七作者）；嵌入核心由合作者开发。此处列为研究经历，不作为已发表论文。",
-        [
-          "网络表示",
+          "流形",
           "设施选址",
-          "蒙特卡洛"
-        ]
+          "均匀性检验"
+        ],
+        "项目结论",
+        "manifold"
       ],
       [
         "mobility",
-        "研究参与 · 2025–2026",
-        "04",
-        "缺少真值时的城际人口迁移估算",
-        "缺少直接流量观测时，如何估计城市间迁移？",
-        "负责遗传算法流程工程化、美法哈数据整理与诊断实验；发现目标和验证问题后，引入 PPML 固定效应重力与目的地约束模型。",
-        "承担研究执行与方法诊断，项目并非由本人独立发起。",
+        "合作研究 · 2026年2月",
+        "03",
+        "哈萨克斯坦城际人口迁移估算",
+        "在缺乏城市间真实迁移记录的情况下，如何估算城市之间的人口迁移流？",
+        "工程化（目的地约束重力模型接入、遗传算法）、跨国数据整理、诊断实验。",
+        "面向缺乏迁移真值地区的城市间净迁移估算框架，以及哈萨克斯坦城市级数据集与可复用估算代码库。",
         [
           "人口迁移",
-          "PPML",
-          "模型诊断"
-        ]
+          "重力模型",
+          "遗传算法"
+        ],
+        "项目产出",
+        "migration"
       ],
       [
         "governance",
-        "独立项目 · 2025–2026",
-        "05",
-        "市民工单与部门职责的语义比较",
-        "如何比较政府部门实际处理事项与法定职责？",
+        "独立项目 · 2025年2月",
+        "04",
+        "12345 政务工单分类优化与语义空间分析",
+        "城市投诉工单涉及多部门职责交叉，如何为市民热线工单的分派提供分析依据？",
         "独立完成数据对接、清洗、问题定义与汇报，以 LLM 结构化抽取、文本嵌入和降维构建“实然—应然”语义框架。",
-        "形成分析框架、标签词库与报告，尚非已部署的分拨系统；对照的数据口径仍有限制。",
+        "形成工单分拨诊断框架，涵盖职能域识别、异常分布诊断与职能交叉定位。",
         [
           "LLM 抽取",
           "语义空间",
           "城市治理"
-        ]
+        ],
+        "项目产出",
+        "governance"
       ],
       [
         "mobility",
-        "已有文稿 · 2026",
-        "06",
-        "上海村庄地域功能与移动角色",
-        "地域属性能否描述村庄在区域网络中如何被使用？",
-        "第二作者、分析与成稿的主要承担者。以 1,555 个行政村为对象独立分类功能和流动角色，开展重采样、贝叶斯层级建模与空间诊断。",
-        "支持选择性关联，不构成因果识别；已有文稿，未核实投稿或发表。",
+        "研究项目 · 2026年8月",
+        "05",
+        "上海行政村地域功能与人口流动角色的选择性耦合（FT–NT）",
+        "在高度城市化的大都市中，乡村的地域功能与人口流动网络角色如何对应？",
+        "空间数据处理（QGIS、Python）、手机信令与多源数据整合；分类与类型对应关系的检验；贝叶斯层级回归。",
+        "将乡村多功能与关系乡村地理学纳入同一村庄尺度分析框架，为乡村分类治理提供参考。",
         [
-          "1,555 个村庄",
-          "贝叶斯建模",
-          "网络角色"
-        ]
+          "1,555 个行政村",
+          "人口流动网络",
+          "贝叶斯模型"
+        ],
+        "研究意义",
+        "villages"
       ]
     ],
-    "contribution": "我的贡献",
-    "status": "状态与范围",
+    "contribution": "本人工作",
     "pubTitle": "论文成果",
     "pubs": [
       [
@@ -562,7 +554,7 @@ window.PROFILE = {
       ],
       [
         "不完整观测下的推断",
-        "当移动数据粗粒度、稀疏或缺失时，哪些结构仍然能够被识别？当前以城内 OD 空间超分为切入点，探索经验规律能够提供多少有效信息。"
+        "当移动数据稀疏或缺失时，哪些结构仍然能够被识别？硕士论文评估个体移动规律在轨迹补全中的信息增益。"
       ],
       [
         "面向城市实践的知识",
@@ -587,8 +579,7 @@ window.PROFILE = {
       ]
     ],
     "researchRoutes": [
-      "od",
-      "noto",
+      "thesis",
       "manifold",
       "migration",
       "governance",
@@ -656,8 +647,10 @@ window.PROFILE = {
     "honours": [
       "国家奖学金 · 2022",
       "山东省优秀毕业生 · 2024",
-      "北京大学挑战杯特等奖 · 2025",
-      "北京大学学业奖学金 · 2025"
+      "北京大学“挑战杯”特等奖 · 2025",
+      "北京大学学业奖学金、三好学生 · 2025",
+      "全国大学生创新创业训练计划全国一等奖",
+      "佛罗伦萨水下橄榄球锦标赛个人奖、团体第四名 · 2026"
     ],
     "backResearch": "← 研究项目总览",
     "backThoughts": "← 想法与理解",
@@ -693,12 +686,11 @@ window.PROFILE = {
       ]
     ],
     "projectNotes": [
-      "细粒度 OD 是希望知道的隐藏状态，观测则是它的空间聚合。多个细粒度矩阵可能产生相同的聚合结果。下一步需要明确每条候选规律具体增加什么信息，并通过有意义的基准检验。",
-      "这是时间缺口补全，与 OD 空间超分是不同任务。最终流程将每日总量与空间份额分开处理。扩大伪缺口验证后，我撤回了收益不稳定的复杂恢复曲线。",
-      "我的工作重点是设施选址与评价，而不是开发嵌入核心。随机参照分布让均匀性分数具有可解释性；同时也需要关注两侧用于采样的边界定义。",
-      "这项工作让我分别检查数据定义、代理目标与验证口径。在发现原有流程的错误和限制后，我参与将估计与验证转向重力模型等替代框架，而不是把优化损失当作准确性的证明。",
-      "框架区分实际办件形成的部门职能域和制度规定的职责范围。只有两侧的数据范围可比，才能将语义分布中的差异进一步解释为制度与执行之间的差异。",
-      "研究分别测量村庄地域功能与移动网络角色，通过重采样和层级模型分析关联与调整后概率。现有证据是横截面关联，不能识别因果机制。"
+      "在固定环境与可用信息集的前提下，控制环境和观测数据本身提供的信息，区分规律形式增益与外部参数增益。",
+      "以流动强弱定义地点之间的远近，识别边界清晰的局部范围，考察其能否拼合为低维空间；通过嵌入还原与设施选址，检验其相对于地理坐标的适用性。",
+      "将城市人口统计与空间交互规律作为软约束，构建“规律违反度”损失函数，结合重力模型与遗传算法估算净迁移流；利用美国数据标定与检验，以法国数据作盲测，再应用于哈萨克斯坦。",
+      "利用 LLM 将实际办件与法定职责转化到同一文本语义空间，对照实际执行与制度职责之间的重叠、偏移和空白。",
+      "以上海 1,555 个行政村为对象，结合村际人口流动数据，分别识别地域功能与流动角色，通过类型关联、重采样检验与层级回归分析两者关系。"
     ],
     "gameMedia": {
       "title": "Park U Go — 校园实景游戏",
@@ -801,6 +793,8 @@ window.PROFILE = {
     },
     "path": {
       "title": "my “MAP”"
-    }
+    },
+    "approach": "研究思路",
+    "figureCaption": "研究路线图"
   }
 };
