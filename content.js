@@ -12,7 +12,7 @@ window.PROFILE = {
     "affiliation": "Peking University · Geography",
     "name": "Haoran Liu",
     "chinese": "刘浩然",
-    "aboutText": "I hope to understand how people and cities shape one another. My interest in cities grew through five years of architectural training at Shandong University, and has expanded through geography research at Peking University. Human mobility offers me a way to study how individual activities form connections and patterns at the scale of a city.",
+    "aboutText": "I hope to understand how people and cities shape one another. Architectural training taught me to approach cities through concrete spaces; after turning to geography, I gradually extended my attention to activities and connections at the scale of the city. For me, human mobility is an important window into the city as a complex system. My interests include regularities and behavioural mechanisms in urban mobility, the effects of urban conditions and external events on movement, and how individual behaviour aggregates into city-scale structures and change. I hope to develop knowledge that can inform planning, design and governance.",
     "researchTitle": "Selected research",
     "researchLead": "My current topic, mobility research experience and selected urban studies.",
     "research": [
@@ -168,15 +168,15 @@ window.PROFILE = {
     "more": [
       [
         "Architecture & making",
-        "I have designed and participated in architecture, landscape and interior projects, from a rural house in Guizhou to campus gardens and public-space renovations. I enjoy following an idea through drawings, materials and on-site work."
+        "I think of myself as an “architect”. I have taken part in architecture, landscape and interior projects, from a rural house in Guizhou to campus gardens and public-space renovations. I like turning ideas into reality — though some are still on their way."
       ],
       [
         "Games & prototypes",
-        "I initiated Park U GO, a location-based campus photo-competition game. Around 50–60 people took part in intermittent prototype testing. I have also built prototypes for participatory garden care, travel journaling and analysing my own movement."
+        "I use games to understand cities. I initiated Park U GO, a location-based campus photo-competition game, and have also built prototypes for participatory garden care, travel journaling and analysing my own movement."
       ],
       [
         "In the water",
-        "Swimming and underwater rugby are part of my life outside research and design. In 2026, I participated in an underwater rugby tournament in Florence."
+        "I can’t stay away from water."
       ]
     ],
     "researchRoutes": [
@@ -411,7 +411,7 @@ window.PROFILE = {
     "affiliation": "北京大学 · 地理学",
     "name": "刘浩然",
     "chinese": "Haoran Liu",
-    "aboutText": "我希望理解人和城市如何相互塑造。本科五年的建筑学训练让我从具体空间出发认识城市；进入北京大学学习地理学后，我逐步将关注扩展到城市尺度的活动与联系。对我而言，人类移动是认识城市这个复杂系统的一个重要窗口。",
+    "aboutText": "我希望理解人和城市如何相互塑造。建筑学训练让我从具体空间出发认识城市；进入学习地理学后，我逐步将关注扩展到城市尺度的活动与联系。对我而言，人类移动是认识城市这个复杂系统的一个重要窗口。我关注城市内人类移动的规律与行为机制、城市条件与外部事件对移动的影响，以及个体行为如何汇聚为城市尺度的结构与变化；希望形成能够用于规划、设计与治理等实践的知识。",
     "researchTitle": "代表性研究",
     "researchLead": "当前主线课题、移动研究经历与代表性城市研究。",
     "research": [
@@ -567,15 +567,15 @@ window.PROFILE = {
     "more": [
       [
         "建筑与建造",
-        "我主创或参与过建筑、景观和室内项目，从贵州乡村住宅到校园花园与公共空间改造。我喜欢把想法落实到图纸、材料与现场建造中。"
+        "我定位自己是一个“建筑师”，参与建筑、景观和室内项目，从贵州乡村住宅到校园花园与公共空间改造。我喜欢把想法变成现实，当然，有些还在路上。"
       ],
       [
         "游戏与原型",
-        "我发起了校园位置与拍照竞技游戏 Park U GO，约 50–60 人参与间歇性原型测试。也做过参与式花园照料、旅行记录与个人轨迹分析等原型。"
+        "我用游戏认识城市，我发起了校园位置与拍照竞技游戏 Park U GO。也做过参与式花园照料、旅行记录与个人轨迹分析等原型。"
       ],
       [
         "在水里",
-        "研究与设计之外，我喜欢游泳，也参加水下橄榄球运动。2026 年曾参加佛罗伦萨的水下橄榄球比赛。"
+        "我离不开水。"
       ]
     ],
     "researchRoutes": [
