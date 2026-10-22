@@ -176,7 +176,7 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .profile-introduction .academic-two-column { align-items: start; }
 .profile-cta { margin-top: 36px; padding-top: 24px; border-top: 1px solid #e2e2e2; }
 .profile-cta .meta { margin: 0 0 10px; font-size: 10px; }
-.profile-cta p { margin: 0; max-width: 46ch; font-size: 15px; line-height: 1.8; color: #111; }
+.profile-cta p { margin: 0; font-size: 15px; line-height: 1.8; color: #111; }
 .profile-cta .text-links { margin-top: 18px; }
 .more-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin: 12px 0 92px; }
 .more-hero-copy h1 { font-size: clamp(56px,6.8vw,92px); font-weight: 500; letter-spacing: -.065em; line-height: .98; margin: 0; }
@@ -338,3 +338,4 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .research-figure { margin: 0; }
 .research-figure img { display: block; width: 100%; height: auto; }
 .research-figure figcaption { margin-top: 10px; font-size: 13px; color: #777; }
+.about-lead { color: #111; font-weight: 600; }

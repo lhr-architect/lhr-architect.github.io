@@ -12,7 +12,7 @@ window.PROFILE = {
     "affiliation": "Peking University · Geography",
     "name": "Haoran Liu",
     "chinese": "刘浩然",
-    "aboutText": "I hope to understand how people and cities shape one another. Architectural training taught me to approach cities through concrete spaces; after turning to geography, I gradually extended my attention to activities and connections at the scale of the city. For me, human mobility is an important window into the city as a complex system. My interests include regularities and behavioural mechanisms in urban mobility, the effects of urban conditions and external events on movement, and how individual behaviour aggregates into city-scale structures and change. I hope to develop knowledge that can inform planning, design and governance.",
+    "aboutText": "Architectural training taught me to approach cities through concrete spaces; after turning to geography, I gradually extended my attention to activities and connections at the scale of the city. For me, human mobility is an important window into the city as a complex system. My interests include regularities and behavioural mechanisms in urban mobility, the effects of urban conditions and external events on movement, and how individual behaviour aggregates into city-scale structures and change. I hope to develop knowledge that can inform planning, design and governance.",
     "researchTitle": "Selected research",
     "researchLead": "My current topic, mobility research experience and selected urban studies.",
     "research": [
@@ -391,7 +391,8 @@ window.PROFILE = {
       "title": "my “MAP”"
     },
     "approach": "Approach",
-    "figureCaption": "Research roadmap"
+    "figureCaption": "Research roadmap",
+    "aboutLead": "I hope to understand how people and cities shape one another."
   },
   "zh": {
     "nav": [
@@ -406,7 +407,7 @@ window.PROFILE = {
     "affiliation": "北京大学 · 地理学",
     "name": "刘浩然",
     "chinese": "Haoran Liu",
-    "aboutText": "我希望理解人和城市如何相互塑造。建筑学训练让我从具体空间出发认识城市；进入学习地理学后，我逐步将关注扩展到城市尺度的活动与联系。对我而言，人类移动是认识城市这个复杂系统的一个重要窗口。我关注城市内人类移动的规律与行为机制、城市条件与外部事件对移动的影响，以及个体行为如何汇聚为城市尺度的结构与变化；希望形成能够用于规划、设计与治理等实践的知识。",
+    "aboutText": "建筑学训练让我从具体空间出发认识城市；进入学习地理学后，我逐步将关注扩展到城市尺度的活动与联系。对我而言，人类移动是认识城市这个复杂系统的一个重要窗口。我关注城市内人类移动的规律与行为机制、城市条件与外部事件对移动的影响，以及个体行为如何汇聚为城市尺度的结构与变化；希望形成能够用于规划、设计与治理等实践的知识。",
     "researchTitle": "代表性研究",
     "researchLead": "当前主线课题、移动研究经历与代表性城市研究。",
     "research": [
@@ -785,6 +786,7 @@ window.PROFILE = {
       "title": "my “MAP”"
     },
     "approach": "研究思路",
-    "figureCaption": "研究路线图"
+    "figureCaption": "研究路线图",
+    "aboutLead": "我希望理解人和城市如何相互塑造。"
   }
 };
