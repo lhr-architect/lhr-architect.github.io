@@ -37,7 +37,7 @@ window.PROFILE = {
         "RESEARCH INTEREST",
         "02",
         "Rebuilding daily life",
-        "How is daily mobility rebuilt after people lose familiar places? Which mobility regularities travel with the person and which are tied to long-term bonds with places? How long does rebuilding take, what sets its pace, and how do individual rebuilds add up to city-level recovery?",
+        "How is daily mobility rebuilt after people lose familiar places?",
         "",
         "Understanding human mobility: which regularities travel with the person and which are tied to people’s bonds with places. Environment and design: what kinds of environments help people regain their daily lives.",
         [
@@ -341,7 +341,7 @@ window.PROFILE = {
     },
     "prototypes": {
       "mytravel": {
-        "title": "My Travel Atlas",
+        "title": "My Travel",
         "summary": "A travel-journal tool that records each day as a structured entry and draws journeys on a map.",
         "lead": "During my exchange in Europe I built a tool for recording where I went each day. It began as a web page and was later rebuilt as a WeChat mini program.",
         "sections": [
@@ -368,29 +368,6 @@ window.PROFILE = {
           "title": "Demo video",
           "caption": "On My Way: a walkthrough of the web version, with English subtitles added below the original frame. First published on Bilibili, 2026."
         }
-      },
-      "trajectory": {
-        "title": "Trajectories from a photo library",
-        "summary": "A pipeline that rebuilds an individual mobility dataset from photo metadata and measures it with methods from mobility research.",
-        "lead": "My phone’s photo library is an unintended record of where I have been. I wrote a pipeline that turns its metadata into a mobility dataset, then asked of my own movement the questions I usually ask of urban data.",
-        "sections": [
-          [
-            "From photos to stays and trips",
-            "Starting from an export of about 29,000 photos with 99 metadata fields, the pipeline keeps only my own device, clusters GPS points into places with a 250 m radius, and derives stays, displacements and daily summaries. The dataset covers about 800 days from April 2024 to August 2026: around 850 places, 15,883 observations, 2,931 stays and 2,657 displacements. Places of residence are identified by number of days rather than number of photos, because trips produce many photos in few days."
-          ],
-          [
-            "Four measurements",
-            "I looked at the data through four lenses: space–time paths from time geography, daily activity motifs, an unsupervised co-occurrence network of scene labels, and mobility scaling laws. Across 798 located days, 86 daily motifs appear and 23 of them cover 90% of days. Used only as a rough reference against values reported in the literature, all three fitted scaling exponents are flatter, suggesting an unusually exploratory period."
-          ],
-          [
-            "What this data can and cannot say",
-            "Photos are presence-only samples: I appear in the data only when I take a picture, so stay durations are lower bounds and short trips are under-recorded. The 250 m clustering also splits large campuses into several places. These limits are close to the incomplete observations I work with in my research."
-          ],
-          [
-            "Privacy",
-            "The photo library is shared with another person; only records from my own device were used. Because the data contain precise locations, neither the dataset nor the full reports are published here."
-          ]
-        ]
       },
       "emomap": {
         "title": "EMO MAP",
@@ -454,7 +431,7 @@ window.PROFILE = {
         "研究兴趣",
         "02",
         "日常的重建",
-        "人失去熟悉的地方之后，日常移动怎样重建？哪些移动规律随人携带，哪些依附于人与地方的长期联系？重建要多久、快慢取决于什么，个人的重建又怎样汇总为城市的恢复？",
+        "人失去熟悉的地方之后，日常移动怎样重建？",
         "",
         "理解人类移动的机制：哪些移动规律随人携带，哪些依附于人与地方的联系。环境与设计：什么样的环境，能让人更好地重拾日常。",
         [
@@ -758,7 +735,7 @@ window.PROFILE = {
     },
     "prototypes": {
       "mytravel": {
-        "title": "My Travel Atlas",
+        "title": "My Travel",
         "summary": "把每天的行程记录为结构化条目、并在地图上绘制轨迹的旅行日志工具。",
         "lead": "在欧洲交换期间，我为自己做了一个记录每天行程的工具。它先是一个网页，后来又改写为微信小程序。",
         "sections": [
@@ -785,29 +762,6 @@ window.PROFILE = {
           "title": "演示视频",
           "caption": "On My Way：网页版功能演示，原画面下方补充了英文字幕。原视频 2026 年发布于哔哩哔哩。"
         }
-      },
-      "trajectory": {
-        "title": "照片轨迹挖掘",
-        "summary": "从照片元数据重建个人移动数据集，并用人类移动研究的方法加以测量的分析流程。",
-        "lead": "手机相册无意中记录了我去过哪里。我写了一套流程，把照片元数据整理成移动数据集，再用研究城市移动数据时常问的问题，回头看我自己的移动。",
-        "sections": [
-          [
-            "从照片到停留与位移",
-            "流程从约 2.9 万张照片、99 个元数据字段的导出开始，只保留我本人的设备，把 GPS 点按 250 m 半径聚类为地点，再推导出停留、位移和逐日汇总。数据集覆盖 2024 年 4 月至 2026 年 8 月约 800 天：约 850 个地点、15,883 次观测、2,931 次停留和 2,657 次位移。常住地按天数而非照片数判定，因为旅行时往往天数少、照片多。"
-          ],
-          [
-            "四种测量",
-            "我用了四种视角：时间地理学的时空路径、日活动模式（motif）、场景标签的无监督共现网络，以及人类移动的标度律。在 798 个有定位的日子里出现了 86 种日活动模式，其中 23 种覆盖 90% 的日子。仅以文献报告值作为量级参照，三条标度律的拟合指数都更平缓，指向一段格外偏向探索的时期。"
-          ],
-          [
-            "这份数据能说明什么",
-            "照片是只记录在场的采样：只有拍照时我才出现在数据里，因此停留时长只是下界，短距离出行也会被低估。250 m 的聚类还会把大型校园拆成几个地点。这些限制与我在研究中处理的不完整观测十分相近。"
-          ],
-          [
-            "关于隐私",
-            "这个图库与另一个人共享，分析只使用了我本人设备的记录。由于数据包含精确位置，这里不公开数据集和完整报告。"
-          ]
-        ]
       },
       "emomap": {
         "title": "EMO MAP",

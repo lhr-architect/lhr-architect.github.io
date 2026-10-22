@@ -84,10 +84,9 @@
       ['game-parkugo.html',d.gamesSections[0][0],m.intro],
       ['game-commonground.html','Common Ground',lang==='en'?'A participatory campus-garden project using playful interaction to connect spatial data, everyday care and co-design.':'以趣味交互连接空间数据、日常照料与共建设计的校园花园项目。'],
       ['game-mytravel.html',p.mytravel.title,p.mytravel.summary],
-      ['game-trajectory.html',p.trajectory.title,p.trajectory.summary],
       ['game-emomap.html',p.emomap.title,p.emomap.summary]
     ];
-    return `<div>${pageHeader(lang==='en'?'Games & prototypes':'游戏与原型',lang==='en'?'Location-based play, participatory care, tools for recording movement and an animated map of feelings: projects on how people connect with places.':'从基于位置的游戏、参与式照料、记录与分析移动的工具，到一段关于情绪的校园动画：关于人如何与场所发生联系的几个项目。',['more.html',d.backMore])}</div><div class="topic-index">${entries.map((x,i)=>`<article><span class="meta">0${i+1}</span><div><h2><a href="${x[0]}">${e(x[1])} ↗</a></h2><p>${e(x[2])}</p></div></article>`).join('')}</div>`;
+    return `<div>${pageHeader(lang==='en'?'Games & prototypes':'游戏与原型',lang==='en'?'Location-based play, participatory care, a tool for recording travel and an animated map of feelings: projects on how people connect with places.':'从基于位置的游戏、参与式照料、记录旅行的工具，到一段关于情绪的校园动画：关于人如何与场所发生联系的几个项目。',['more.html',d.backMore])}</div><div class="topic-index">${entries.map((x,i)=>`<article><span class="meta">0${i+1}</span><div><h2><a href="${x[0]}">${e(x[1])} ↗</a></h2><p>${e(x[2])}</p></div></article>`).join('')}</div>`;
   }
   function prototype(d,slug) {
     const m = d.prototypes[slug];
@@ -144,7 +143,7 @@
     else if(page==='more') html=more(d);
     else if(page==='games') html=games(d);
     else if(page==='game-parkugo') html=parkugo(d);
-    else if(['game-mytravel','game-trajectory','game-emomap'].includes(page)) html=prototype(d,page.slice(5));
+    else if(['game-mytravel','game-emomap'].includes(page)) html=prototype(d,page.slice(5));
     else if(page==='water') html=water(d);
     else if(page.startsWith('design-')) html=designProject(page.slice(7));
     else if(page==='game-commonground') html=designProject('commonground');
