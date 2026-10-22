@@ -188,7 +188,7 @@ window.PROFILE = {
       ],
       [
         "Games & prototypes",
-        "I use games to understand cities. I initiated Park U GO, a location-based campus photo-competition game, and have also built prototypes for participatory garden care, travel journaling and analysing my own movement."
+        "I use games to understand cities. I initiated Park U GO, a location-based campus photo-competition game, and have also built prototypes for participatory garden care and tools for recording travel and personal trajectories."
       ],
       [
         "In the water",
@@ -583,7 +583,7 @@ window.PROFILE = {
       ],
       [
         "游戏与原型",
-        "我用游戏认识城市，我发起了校园位置与拍照竞技游戏 Park U GO。也做过参与式花园照料、旅行记录与个人轨迹分析等原型。"
+        "我用游戏认识城市，我发起了校园位置与拍照竞技游戏 Park U GO。也做过参与式花园照料、旅行与个人轨迹记录工具等原型。"
       ],
       [
         "在水里",
