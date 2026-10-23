@@ -37,7 +37,7 @@ window.PROFILE = {
         "RESEARCH INTEREST",
         "02",
         "Rebuilding daily life",
-        "How is daily mobility rebuilt after people lose familiar places?",
+        "How do people’s daily mobility patterns evolve after their residence or activity environment changes?",
         "",
         "Understanding human mobility: which regularities travel with the person and which are tied to people’s bonds with places. Environment and design: what kinds of environments help people regain their daily lives.",
         [
@@ -432,7 +432,7 @@ window.PROFILE = {
         "研究兴趣",
         "02",
         "日常的重建",
-        "人失去熟悉的地方之后，日常移动怎样重建？",
+        "居住地或活动环境变化后，人们的日常移动模式如何演变？",
         "",
         "理解人类移动的机制：哪些移动规律随人携带，哪些依附于人与地方的联系。环境与设计：什么样的环境，能让人更好地重拾日常。",
         [
