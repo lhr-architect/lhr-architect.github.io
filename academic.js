@@ -21,12 +21,13 @@
   const sectionTitle = text => `<h2 class="profile-heading">${e(text)}</h2>`;
   const pageHeader = (title,intro,back) => `${back?`<a class="back-link" href="${back[0]}">${e(back[1])}</a>`:''}<header class="page-heading"><h1>${e(title)}</h1>${intro?`<p>${e(intro)}</p>`:''}</header>`;
   const proseSections = rows => rows.map(x=>`<section><h2>${e(x[0])}</h2><p>${e(x[1])}</p></section>`).join('');
-  // The development path, drawn exactly as slide 1 of the deck (path-layout.js): every text box sits at its
-  // slide position on a 2:1 canvas, and font sizes scale with the canvas width (1500 pt slide = 100cqw).
+  // The development path, drawn exactly as slide 1 of the deck (path-layout.js). The slide is laid out once on a
+  // fixed 1500 × 750 px stage (1 pt = 1 px) and fitPath() scales the whole stage to the column width, so phones,
+  // minimum-font-size settings and older browsers all see the same layout instead of reflowed, overlapping text.
   function pathMap(d) {
     const L = window.PATH_LAYOUT;
     if (!L) return '';
-    const pt = v => `${(v/15).toFixed(4)}cqw`;
+    const pt = v => `${v}px`;
     const align = {l:'left',ctr:'center',r:'right'};
     const run = r => `<span style="font-size:${pt(r.size)};font-weight:${r.bold?700:400};color:${r.color}">${e(r.t)}</span>`;
     const para = p => `<p style="text-align:${align[p.align]||'left'};font-size:${pt(p.size)}">${p.runs.length?p.runs.map(run).join(''):'&nbsp;'}</p>`;
@@ -40,8 +41,27 @@
     const heads = L.heads.map(([x,y,w,h,c]) => `<polyline points="${X(x)},${Y(y)} ${X(x+w)},${Y(y+h/2)} ${X(x)},${Y(y+h)}" fill="none" stroke="${c}" stroke-width="${stroke}"/>`).join('');
     const braces = L.braces.map(([x,y,w,h,c]) => { const l=X(x), m=X(x+w/2), r=X(x+w), at=f=>Y(y+h*f);
       return `<path d="M${r},${at(0)} Q${m},${at(0)} ${m},${at(.0857)} L${m},${at(.4143)} Q${m},${at(.5)} ${l},${at(.5)} Q${m},${at(.5)} ${m},${at(.5857)} L${m},${at(.9143)} Q${m},${at(1)} ${r},${at(1)}" fill="none" stroke="${c}" stroke-width="${stroke}"/>`; }).join('');
-    return `<section class="path-section">${sectionTitle(d.path.title)}<div class="path-scroll"><div class="path-slide"><svg viewBox="0 0 2000 1000" aria-hidden="true">${dots}${lines}${heads}${braces}</svg>${boxes}</div></div></section>`;
+    return `<section class="path-section">${sectionTitle(d.path.title)}<div class="path-scroll"><div class="path-slide"><svg viewBox="0 0 2000 1000" aria-hidden="true">${dots}${lines}${heads}${braces}</svg>${boxes}</div></div><a class="text-link path-full" href="assets/path/map-${lang}.png" target="_blank" rel="noopener">${lang==='en'?'View full size':'查看大图'} ↗</a></section>`;
   }
+  // Some phone browsers (WeChat, Android accessibility text scaling) enlarge every font by a factor; the probe
+  // measures it so the stage can undo it before scaling.
+  function fitPath() {
+    const frame = document.querySelector('.path-scroll'), slide = frame?.querySelector('.path-slide');
+    if (!frame || !slide) return;
+    if (!slide.dataset.fitted) {
+      const probe = document.createElement('span');
+      probe.style.cssText = 'position:absolute;visibility:hidden;font-size:100px';
+      slide.appendChild(probe);
+      const zoom = parseFloat(getComputedStyle(probe).fontSize) / 100 || 1;
+      probe.remove();
+      if (Math.abs(zoom - 1) > .01) slide.querySelectorAll('[style*="font-size"]').forEach(el => { el.style.fontSize = `${parseFloat(el.style.fontSize) / zoom}px`; });
+      slide.dataset.fitted = '1';
+    }
+    slide.style.transform = `scale(${frame.clientWidth / 1500})`;
+  }
+  addEventListener('resize', fitPath);
+  addEventListener('orientationchange', fitPath);
+  if (window.ResizeObserver) new ResizeObserver(fitPath).observe(document.documentElement);
   function home(d) {
     return `<section class="profile-introduction"><div class="profile-main"><h1>${e(d.name)} <span>${e(d.chinese)}</span></h1><p class="profile-position">${lang==='en'?'Geography · Human mobility & spatial interaction':'地理学 · 人类移动与空间交互'}</p><div class="prose"><p class="lead">${e(d.intro)}</p><p><strong class="about-lead">${e(d.aboutLead)}</strong><br>${e(d.aboutText)}</p></div><div class="profile-cta"><p class="meta">${lang==='en'?'PHD APPLICATION':'博士申请'}</p><p>${e(d.phd)}</p><div class="text-links"><a href="cv.html?lang=${lang}">${e(d.cv)}</a><a href="mailto:2401213545@stu.pku.edu.cn">Contact</a></div></div></div><aside class="hero-aside profile-aside"><figure class="profile-photo"><img src="assets/personal/portrait.png" alt="${lang==='en'?'Haoran Liu outdoors with a camera':'拿着相机的刘浩然'}" width="836" height="1204"></figure></aside></section>
     ${pathMap(d)}
@@ -56,7 +76,7 @@
     const x = d.research[i];
     if (!x) return home(d);
     // x: [category, label, number, title, question, contribution, outcome, tags, outcome heading, roadmap image]
-    const figure = x[9] ? `<section><figure class="research-figure"><a href="assets/research/${x[9]}-${lang}.png" target="_blank" rel="noopener"><img src="assets/research/${x[9]}-${lang}.png" alt="${e(`${d.figureCaption} · ${x[3]}`)}"></a><figcaption>${e(d.figureCaption)}</figcaption></figure></section>` : '';
+    const figure = x[9] ? `<section><figure class="research-figure"><a href="assets/research/${x[9]}-${lang}.png" target="_blank" rel="noopener"><img src="assets/research/${x[9]}-${lang}.png" alt="${e(`${d.figureCaption} · ${x[3]}`)}"></a><figcaption>${e(d.figureCaption)}<a class="figure-zoom" href="assets/research/${x[9]}-${lang}.png" target="_blank" rel="noopener">${lang==='en'?'Tap to enlarge':'点击查看大图'} ↗</a></figcaption></figure></section>` : '';
     const contribution = x[5] ? `<section><h2>${e(d.contribution)}</h2><p>${e(x[5])}</p></section>` : '';
     return `${pageHeader(x[3],x[1],['research.html',d.backResearch])}<article class="article-prose"><section><h2>${e(d.questionLabel)}</h2><p class="article-lead">${e(x[4])}</p></section>${figure}${d.projectNotes[i]?`<section><h2>${e(d.approach)}</h2><p>${e(d.projectNotes[i])}</p></section>`:''}${contribution}<section><h2>${e(x[8])}</h2><p>${e(x[6])}</p></section></article><nav class="related-links" aria-label="Related research"><span class="meta">${e(d.projectFooter)}</span>${d.research.map((y,j)=>j!==i?`<a href="${projectLink(d,j)}">${e(y[3])} ↗</a>`:'').join('')}</nav>`;
   }
@@ -149,6 +169,7 @@
     else if(page==='game-commonground') html=designProject('commonground');
     else html=home(d);
     document.querySelector('#page-content').innerHTML=html;
+    fitPath();
     const heading=document.querySelector('#page-content h1')?.cloneNode(true);
     heading?.querySelectorAll('br').forEach(br=>br.replaceWith(' '));
     heading?.querySelector('.title-dot')?.remove();

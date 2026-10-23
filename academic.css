@@ -90,7 +90,8 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
  .hero-aside .aside-note { margin-top: 16px; }
  .academic-heading { margin-bottom: 28px; }
  .academic-heading h2, .contact-section h2 { font-size: 27px; }
- .education-item { grid-template-columns: 100px 1fr; gap: 16px; }
+ .education-item { grid-template-columns: 1fr; gap: 4px; }
+ .publication { grid-template-columns: 1fr; gap: 4px; }
  .research-list { gap: 36px; }
  .research-item { gap: 12px; }
  .research-item h3 { font-size: 21px; }
@@ -206,7 +207,7 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 @media(max-width:760px) {
  .profile-introduction .academic-two-column { gap: 28px; }
  .profile-aside { max-width: 100%; justify-self: start; }
- .profile-photo { max-width: 300px; }
+ .profile-photo { max-width: none; }
  .profile-photo img { aspect-ratio: 4/5; }
  .more-hero { grid-template-columns: 1fr; gap: 40px; margin: 0 0 56px; }
  .more-hero-copy h1 { font-size: clamp(58px,16vw,80px); }
@@ -328,13 +329,24 @@ summary:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .story-video video { display: block; width: auto; max-width: 100%; max-height: 80vh; background: #111; }
 /* Development path: the slide reproduced on a 2:1 canvas; positions come from path-layout.js. */
 .path-section { margin-bottom: 80px; }
-.path-scroll { overflow: clip; }
-.path-slide { position: relative; aspect-ratio: 2 / 1; container-type: inline-size; font-family: Arial, Helvetica, sans-serif; }
+.path-scroll { position: relative; height: 0; padding-top: 50%; overflow: hidden; }
+.path-slide { position: absolute; top: 0; left: 0; width: 1500px; height: 750px; transform-origin: 0 0; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; font-family: Arial, Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif; }
 .path-slide svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .path-box { position: absolute; display: flex; flex-direction: column; }
-.path-box p { margin: 0; line-height: 1.15; text-wrap: pretty; }
+.path-box p { margin: 0; line-height: 1.15; text-wrap: pretty; word-break: normal; overflow-wrap: normal; }
 .path-box a { color: inherit; text-decoration: none; }
 .path-box a:hover span { text-decoration: underline; text-underline-offset: .2em; }
+/* Phones get the slide as a thumbnail plus a full-size image they can pinch-zoom (assets/path/map-{lang}.png). */
+.path-full { display: none; }
+@media(max-width:760px) { .path-full { display: inline-block; margin-top: 16px; } }
+.figure-zoom { display: none; }
+/* Phones: small labels and captions go up to 12px, the smallest size Chinese stays legible at. */
+@media(max-width:760px) {
+ .figure-zoom { display: inline; margin-left: 12px; color: #111; }
+ .meta, .project-number, .section-number, .cv-project .meta, .profile-cta .meta { font-size: 12px; }
+ .profile-photo figcaption, .self-portrait figcaption, .screen-gallery figcaption { font-size: 12px; }
+ .portal-icon span, .personal-portals .floating-log span, .head-portal span { font-size: 12px; }
+}
 .research-figure { margin: 0; }
 .research-figure img { display: block; width: 100%; height: auto; }
 .research-figure figcaption { margin-top: 10px; font-size: 13px; color: #777; }
