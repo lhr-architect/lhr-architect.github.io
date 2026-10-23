@@ -541,7 +541,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "空间表征",
+       "t": "空间表示",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
@@ -793,7 +793,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "规律嵌入的停留识别补全",
+       "t": "规律嵌入的停留识别推测",
        "size": 15.0,
        "bold": false,
        "color": "#111111"
@@ -807,7 +807,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "Stay detection and completion incorporating mobility regularities",
+       "t": "Stay detection and inference incorporating mobility regularities",
        "size": 15.0,
        "bold": false,
        "color": "#111111"

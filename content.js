@@ -21,11 +21,11 @@ window.PROFILE = {
         "MASTER’S THESIS · ONGOING",
         "01",
         "Information gain from individual mobility regularities",
-        "How much additional information do known individual mobility regularities, such as exploration and return, distance decay and temporal rhythms, provide for trajectory completion? Under which gap lengths and spatial resolutions are they useful?",
+        "How much additional information do known individual mobility regularities, such as exploration and return, distance decay and temporal rhythms, provide for trajectory inference? Under which gap lengths and spatial resolutions are they useful?",
         "",
         "Evaluate the information gain and limits of different regularities under comparable conditions, providing a verifiable basis for incorporating mobility regularities into algorithms.",
         [
-          "Trajectory completion",
+          "Trajectory inference",
           "Mobility regularities",
           "Information gain"
         ],
@@ -52,7 +52,7 @@ window.PROFILE = {
         "mobility",
         "COLLABORATIVE RESEARCH · DEC 2025",
         "03",
-        "Geographic manifolds: facility siting and uniformity tests",
+        "Low-dimensional geometry of human mobility networks",
         "Distance-decay models that assume homogeneous space may obscure local structure. Can a city’s latent spatial structure instead be inferred from human flows without prespecifying a distance function?",
         "Spatial data processing (GIS, Python); facility-siting optimisation and manifold-embedding visualisation; statistical tests. In the roadmap, red frames mark my parts: local neighbourhoods and locality tiling, coverage redundancy and the uniformity test.",
         "Human mobility networks lie on manifolds of dimension at most five, with detectable local neighbourhoods. Optimal facility layouts exhibit uniform local order when measured in manifold space.",
@@ -171,7 +171,7 @@ window.PROFILE = {
       ],
       [
         "Inference from incomplete observations",
-        "Which structures remain identifiable when mobility observations are sparse or missing? My master’s thesis evaluates the information gain of individual mobility regularities in trajectory completion."
+        "Which structures remain identifiable when mobility observations are sparse or missing? My master’s thesis evaluates the information gain of individual mobility regularities in trajectory inference."
       ],
       [
         "Knowledge for urban practice",
@@ -416,11 +416,11 @@ window.PROFILE = {
         "硕士毕业论文 · 在研",
         "01",
         "个体移动规律的信息增益",
-        "已知的个体移动规律，如探索—回访、距离衰减与时间节律等，在轨迹补全中能够额外提供多少信息，在何种缺口长度与空间分辨率下有效？",
+        "已知的个体移动规律，如探索—回访、距离衰减与时间节律等，在轨迹推测中能够额外提供多少信息，在何种缺口长度与空间分辨率下有效？",
         "",
         "在可比较的条件下评估不同规律的信息增益与有效边界，为算法引入规律提供可核对的依据。",
         [
-          "轨迹补全",
+          "轨迹推测",
           "移动规律",
           "信息增益"
         ],
@@ -447,7 +447,7 @@ window.PROFILE = {
         "mobility",
         "合作研究 · 2025年12月",
         "03",
-        "地理流形上的设施选址与均匀性检验",
+        "人类移动网络的低维几何",
         "普适距离衰减模型对均质空间的预设可能掩盖局地结构。能否不预设距离函数，而由人的流动构造并识别城市的内在空间？",
         "空间数据处理（GIS、Python）；选址优化、流形嵌入制图；统计检验。路线图中红框为我负责的部分：局部邻域与局域拼合、覆盖冗余与均匀性检验。",
         "人类移动网络位于维数至多为 5 的低维流形上，“局地”是其中可检测的几何实体；采用流形空间度量时，设施选址的最优解呈现均匀的局地秩序。",
@@ -566,7 +566,7 @@ window.PROFILE = {
       ],
       [
         "不完整观测下的推断",
-        "当移动数据稀疏或缺失时，哪些结构仍然能够被识别？硕士论文评估个体移动规律在轨迹补全中的信息增益。"
+        "当移动数据稀疏或缺失时，哪些结构仍然能够被识别？硕士论文评估个体移动规律在轨迹推测中的信息增益。"
       ],
       [
         "面向城市实践的知识",
