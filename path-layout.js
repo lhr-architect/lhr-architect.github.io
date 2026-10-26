@@ -574,18 +574,18 @@ window.PATH_LAYOUT = {
   {
    "x": 60,
    "y": 27.3,
-   "w": 16.5,
+   "w": 14.8,
    "h": 7,
    "anchor": "ctr",
    "link": "project-manifold.html",
    "zh": [
     {
      "align": "l",
-     "size": 15,
+     "size": 16.5,
      "runs": [
       {
        "t": "人类移动网络的低维几何",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
@@ -595,11 +595,11 @@ window.PATH_LAYOUT = {
    "en": [
     {
      "align": "l",
-     "size": 15,
+     "size": 16.5,
      "runs": [
       {
        "t": "Low-dimensional geometry of mobility networks",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
@@ -694,7 +694,7 @@ window.PATH_LAYOUT = {
   {
    "x": 60,
    "y": 34.247,
-   "w": 17.287,
+   "w": 19,
    "h": 7,
    "anchor": "ctr",
    "link": "project-migration.html",
@@ -704,12 +704,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "规律嵌入的人口迁移预测",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ],
    "en": [
@@ -718,12 +718,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Population migration prediction incorporating mobility regularities",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ]
   },
@@ -766,7 +766,7 @@ window.PATH_LAYOUT = {
   {
    "x": 60,
    "y": 42.753,
-   "w": 15.9,
+   "w": 19,
    "h": 7,
    "anchor": "ctr",
    "link": "project-thesis.html",
@@ -776,12 +776,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "规律嵌入的停留识别推测",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ],
    "en": [
@@ -790,12 +790,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Stay detection and inference incorporating mobility regularities",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ]
   },
@@ -893,15 +893,27 @@ window.PATH_LAYOUT = {
    "zh": [
     {
      "align": "l",
+     "size": 16.5,
      "runs": [
       {
-       "t": "生成式人工智能如何理解设计手法",
-       "size": 15,
+       "t": "生成式人工智能",
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
-     ],
-     "size": 15
+     ]
+    },
+    {
+     "align": "l",
+     "size": 16.5,
+     "runs": [
+      {
+       "t": "如何理解设计手法",
+       "size": 16.5,
+       "bold": false,
+       "color": "#111111"
+      }
+     ]
     }
    ],
    "en": [
@@ -910,12 +922,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Understanding design techniques with generative AI",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ]
   },
@@ -958,7 +970,7 @@ window.PATH_LAYOUT = {
   {
    "x": 60,
    "y": 58,
-   "w": 16.6,
+   "w": 19,
    "h": 7,
    "anchor": "ctr",
    "link": "project-governance.html",
@@ -968,12 +980,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "辅助城市投诉工单的部门分工",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ],
    "en": [
@@ -982,12 +994,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Assisting departmental routing of urban complaint tickets",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ]
   },
@@ -1042,7 +1054,7 @@ window.PATH_LAYOUT = {
   {
    "x": 50.5,
    "y": 68,
-   "w": 8.75,
+   "w": 9.4,
    "h": 7,
    "anchor": "ctr",
    "link": null,
@@ -1052,12 +1064,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "LBS 游戏开发",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ],
    "en": [
@@ -1066,31 +1078,31 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Location-based",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     },
     {
      "align": "l",
      "runs": [
       {
        "t": "games",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ]
   },
   {
    "x": 60,
    "y": 67.247,
-   "w": 16.25,
+   "w": 19,
    "h": 7,
    "anchor": "ctr",
    "link": "game-parkugo.html",
@@ -1100,12 +1112,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "地理游戏激活校园绿地",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ],
    "en": [
@@ -1114,12 +1126,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Activating campus green spaces through location-based play",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ]
   },
@@ -1133,48 +1145,60 @@ window.PATH_LAYOUT = {
    "zh": [
     {
      "align": "l",
+     "size": 16.5,
      "runs": [
       {
-       "t": "公共治理游戏开发",
-       "size": 15,
+       "t": "公共治理",
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
-     ],
-     "size": 15
+     ]
+    },
+    {
+     "align": "l",
+     "size": 16.5,
+     "runs": [
+      {
+       "t": "游戏开发",
+       "size": 16.5,
+       "bold": false,
+       "color": "#111111"
+      }
+     ]
     }
    ],
    "en": [
     {
      "align": "l",
+     "size": 16.5,
      "runs": [
       {
-       "t": "Public governance",
-       "size": 15,
+       "t": "Public",
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
-     ],
-     "size": 15
+     ]
     },
     {
      "align": "l",
+     "size": 16.5,
      "runs": [
       {
-       "t": "games",
-       "size": 15,
+       "t": "governance games",
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
-     ],
-     "size": 15
+     ]
     }
    ]
   },
   {
    "x": 60,
    "y": 75.753,
-   "w": 14,
+   "w": 19,
    "h": 7,
    "anchor": "ctr",
    "link": null,
@@ -1184,12 +1208,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "社区花园自治游戏",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ],
    "en": [
@@ -1198,12 +1222,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "A game for community garden self-governance",
-       "size": 15,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15
+     "size": 16.5
     }
    ]
   },
@@ -1504,7 +1528,7 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "人类移动规律",
-       "size": 18,
+       "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
