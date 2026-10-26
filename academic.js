@@ -31,8 +31,10 @@
     const align = {l:'left',ctr:'center',r:'right'};
     const run = r => `<span style="font-size:${pt(r.size)};font-weight:${r.bold?700:400};color:${r.color}">${e(r.t)}</span>`;
     const para = p => `<p style="text-align:${align[p.align]||'left'};font-size:${pt(p.size)}">${p.runs.length?p.runs.map(run).join(''):'&nbsp;'}</p>`;
+    // Linked boxes are set in bold with a trailing ↗ so they read as links without hovering (and on phones).
+    const linked = ps => ps.map((p,i) => ({...p, runs: p.runs.map((r,j) => ({...r, bold:true, t: i===ps.length-1 && j===p.runs.length-1 ? `${r.t} ↗` : r.t}))}));
     const boxes = L.boxes.map(b => {
-      const text = b[lang].map(para).join('');
+      const text = (b.link ? linked(b[lang]) : b[lang]).map(para).join('');
       return `<div class="path-box" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%;justify-content:${b.anchor==='ctr'?'center':'flex-start'}">${b.link?`<a href="${b.link}">${text}</a>`:text}</div>`;
     }).join('');
     const X = v => (v*20).toFixed(2), Y = v => (v*10).toFixed(2), stroke = (L.stroke*20).toFixed(2);
@@ -41,7 +43,8 @@
     const heads = L.heads.map(([x,y,w,h,c]) => `<polyline points="${X(x)},${Y(y)} ${X(x+w)},${Y(y+h/2)} ${X(x)},${Y(y+h)}" fill="none" stroke="${c}" stroke-width="${stroke}"/>`).join('');
     const braces = L.braces.map(([x,y,w,h,c]) => { const l=X(x), m=X(x+w/2), r=X(x+w), at=f=>Y(y+h*f);
       return `<path d="M${r},${at(0)} Q${m},${at(0)} ${m},${at(.0857)} L${m},${at(.4143)} Q${m},${at(.5)} ${l},${at(.5)} Q${m},${at(.5)} ${m},${at(.5857)} L${m},${at(.9143)} Q${m},${at(1)} ${r},${at(1)}" fill="none" stroke="${c}" stroke-width="${stroke}"/>`; }).join('');
-    return `<section class="path-section">${sectionTitle(d.path.title)}<div class="path-scroll"><div class="path-slide"><svg viewBox="0 0 2000 1000" aria-hidden="true">${dots}${lines}${heads}${braces}</svg>${boxes}</div></div><a class="text-link path-full" href="assets/path/map-${lang}.png" target="_blank" rel="noopener">${lang==='en'?'View full size':'查看大图'} ↗</a></section>`;
+    const down = (L.down||[]).map(([x,y,h,c]) => `<line x1="${X(x)}" y1="${Y(y)}" x2="${X(x)}" y2="${Y(y+h)}" stroke="${c}" stroke-width="${stroke}"/><polyline points="${X(x-.4)},${Y(y+h-1.4)} ${X(x)},${Y(y+h)} ${X(x+.4)},${Y(y+h-1.4)}" fill="none" stroke="${c}" stroke-width="${stroke}"/>`).join('');
+    return `<section class="path-section">${sectionTitle(d.path.title)}<div class="path-scroll"><div class="path-slide"><svg viewBox="0 0 2000 1000" aria-hidden="true">${dots}${lines}${heads}${down}${braces}</svg>${boxes}</div></div><a class="text-link path-full" href="assets/path/map-${lang}.png" target="_blank" rel="noopener">${lang==='en'?'View full size':'查看大图'} ↗</a></section>`;
   }
   // Some phone browsers (WeChat, Android accessibility text scaling) enlarge every font by a factor; the probe
   // measures it so the stage can undo it before scaling.
@@ -65,8 +68,7 @@
   function home(d) {
     return `<section class="profile-introduction"><div class="profile-main"><h1>${e(d.name)} <span>${e(d.chinese)}</span></h1><p class="profile-position">${lang==='en'?'Geography · Human mobility & spatial interaction':'地理学 · 人类移动与空间交互'}</p><div class="prose"><p class="lead">${e(d.intro)}</p><p><strong class="about-lead">${e(d.aboutLead)}</strong><br>${e(d.aboutText)}</p></div><div class="profile-cta"><p class="meta">${lang==='en'?'PHD APPLICATION':'博士申请'}</p><p>${e(d.phd)}</p><div class="text-links"><a href="cv.html?lang=${lang}">${e(d.cv)}</a><a href="mailto:2401213545@stu.pku.edu.cn">Contact</a></div></div></div><aside class="hero-aside profile-aside"><figure class="profile-photo"><img src="assets/personal/portrait.png" alt="${lang==='en'?'Haoran Liu outdoors with a camera':'拿着相机的刘浩然'}" width="836" height="1204"></figure></aside></section>
     ${pathMap(d)}
-    <div class="profile-grid"><section>${sectionTitle(d.homeExperience)}<div class="compact-projects">${d.research.map((x,i)=>`<article><h3><a href="${projectLink(d,i)}">${e(x[3])} ↗</a></h3><p class="meta">${e(x[1])}</p></article>`).join('')}</div><a class="text-link" href="research.html">${e(d.allResearch)}</a></section><section>${sectionTitle(d.educationTitle)}<div class="education">${education(d)}</div></section></div>
-    <div class="profile-grid"><section>${sectionTitle(d.honoursTitle)}<ul class="honours-list">${d.honours.map(x=>`<li>${e(x)}</li>`).join('')}</ul></section><section><div class="profile-contact"><h3>${e(d.contactTitle)}</h3><a href="mailto:2401213545@stu.pku.edu.cn">2401213545@stu.pku.edu.cn ↗</a></div></section></div>`;
+    <div class="profile-grid"><section>${sectionTitle(d.educationTitle)}<div class="education">${education(d)}</div></section><section>${sectionTitle(d.honoursTitle)}<ul class="honours-list">${d.honours.map(x=>`<li>${e(x)}</li>`).join('')}</ul><div class="profile-contact"><h3>${e(d.contactTitle)}</h3><a href="mailto:2401213545@stu.pku.edu.cn">2401213545@stu.pku.edu.cn ↗</a></div></section></div>`;
   }
   function research(d) {
     return `${pageHeader(d.nav[1],d.researchLead)}<div class="project-index">${d.research.map((x,i)=>`<article><span class="project-number">${e(x[2])}</span><div><p class="meta">${e(x[1])}</p><h2><a href="${projectLink(d,i)}">${e(x[3])} ↗</a></h2><p>${e(x[4])}</p></div></article>`).join('')}</div><section class="publications">${sectionTitle(d.pubTitle)}${papers(d)}</section>`;

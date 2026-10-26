@@ -10,7 +10,7 @@ window.PATH_LAYOUT = {
   {
    "x": 2.4,
    "y": 4.2,
-   "w": 24.0,
+   "w": 24,
    "h": 5.5,
    "anchor": "t",
    "link": null,
@@ -46,7 +46,7 @@ window.PATH_LAYOUT = {
   {
    "x": 41.537,
    "y": 4.2,
-   "w": 25.0,
+   "w": 25,
    "h": 5.5,
    "anchor": "t",
    "link": null,
@@ -152,7 +152,7 @@ window.PATH_LAYOUT = {
    ]
   },
   {
-   "x": 81.0,
+   "x": 81,
    "y": 17.8,
    "w": 16.5,
    "h": 4.2,
@@ -251,7 +251,7 @@ window.PATH_LAYOUT = {
    "x": 14.75,
    "y": 22.8,
    "w": 13.25,
-   "h": 12.0,
+   "h": 12,
    "anchor": "t",
    "link": null,
    "zh": [
@@ -332,7 +332,7 @@ window.PATH_LAYOUT = {
    ]
   },
   {
-   "x": 22.0,
+   "x": 22,
    "y": 44.987,
    "w": 7.5,
    "h": 11.5,
@@ -355,28 +355,22 @@ window.PATH_LAYOUT = {
    "en": [
     {
      "align": "l",
+     "size": 16.5,
      "runs": [
       {
-       "t": "space d",
-       "size": 16.5,
-       "bold": false,
-       "color": "#111111"
-      },
-      {
-       "t": "esign",
+       "t": "Spatial design",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
       }
-     ],
-     "size": 16.5
+     ]
     }
    ]
   },
   {
    "x": 20.363,
-   "y": 60.0,
-   "w": 11.0,
+   "y": 60,
+   "w": 11,
    "h": 11.5,
    "anchor": "t",
    "link": null,
@@ -424,8 +418,8 @@ window.PATH_LAYOUT = {
   {
    "x": 31.507,
    "y": 22.8,
-   "w": 10.0,
-   "h": 17.0,
+   "w": 10,
+   "h": 17,
    "anchor": "t",
    "link": null,
    "zh": [
@@ -578,50 +572,38 @@ window.PATH_LAYOUT = {
    ]
   },
   {
-   "x": 56.653,
-   "y": 29.013,
-   "w": 17.85,
-   "h": 4.2,
-   "anchor": "t",
+   "x": 60,
+   "y": 27.3,
+   "w": 16.5,
+   "h": 7,
+   "anchor": "ctr",
    "link": "project-manifold.html",
    "zh": [
     {
-     "align": "ctr",
+     "align": "l",
+     "size": 15,
      "runs": [
       {
-       "t": "地理流形",
-       "size": 16.5,
+       "t": "人类移动网络的低维几何",
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
-     ],
-     "size": 16.5
+     ]
     }
    ],
    "en": [
     {
-     "align": "ctr",
+     "align": "l",
+     "size": 15,
      "runs": [
       {
-       "t": "Geographic",
-       "size": 16.5,
-       "bold": false,
-       "color": "#111111"
-      },
-      {
-       "t": "  ",
-       "size": 16.5,
-       "bold": false,
-       "color": "#111111"
-      },
-      {
-       "t": "manifolds",
-       "size": 16.5,
+       "t": "Low-dimensional geometry of mobility networks",
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
-     ],
-     "size": 16.5
+     ]
     }
    ]
   },
@@ -629,7 +611,7 @@ window.PATH_LAYOUT = {
    "x": 40.75,
    "y": 34.247,
    "w": 7.5,
-   "h": 14.0,
+   "h": 14,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -675,9 +657,9 @@ window.PATH_LAYOUT = {
   },
   {
    "x": 50.5,
-   "y": 35.0,
+   "y": 35,
    "w": 8.75,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -710,10 +692,10 @@ window.PATH_LAYOUT = {
    ]
   },
   {
-   "x": 60.0,
+   "x": 60,
    "y": 34.247,
    "w": 17.287,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": "project-migration.html",
    "zh": [
@@ -722,12 +704,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "规律嵌入的人口迁移预测",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -736,12 +718,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Population migration prediction incorporating mobility regularities",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
@@ -749,7 +731,7 @@ window.PATH_LAYOUT = {
    "x": 50.5,
    "y": 43.507,
    "w": 8.75,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -782,24 +764,24 @@ window.PATH_LAYOUT = {
    ]
   },
   {
-   "x": 60.0,
+   "x": 60,
    "y": 42.753,
    "w": 15.9,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
-   "link": null,
+   "link": "project-thesis.html",
    "zh": [
     {
      "align": "l",
      "runs": [
       {
        "t": "规律嵌入的停留识别推测",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -808,20 +790,20 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Stay detection and inference incorporating mobility regularities",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
   {
    "x": 40.75,
-   "y": 51.0,
+   "y": 51,
    "w": 7.5,
-   "h": 14.0,
+   "h": 14,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -867,9 +849,9 @@ window.PATH_LAYOUT = {
   },
   {
    "x": 50.5,
-   "y": 51.0,
+   "y": 51,
    "w": 8.75,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -902,10 +884,10 @@ window.PATH_LAYOUT = {
    ]
   },
   {
-   "x": 60.0,
-   "y": 51.0,
-   "w": 14.0,
-   "h": 7.0,
+   "x": 60,
+   "y": 51,
+   "w": 14,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -914,12 +896,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "生成式人工智能如何理解设计手法",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -928,20 +910,20 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Understanding design techniques with generative AI",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
   {
    "x": 50.5,
-   "y": 58.0,
+   "y": 58,
    "w": 8.75,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -974,10 +956,10 @@ window.PATH_LAYOUT = {
    ]
   },
   {
-   "x": 60.0,
-   "y": 58.0,
-   "w": 14.0,
-   "h": 7.0,
+   "x": 60,
+   "y": 58,
+   "w": 16.6,
+   "h": 7,
    "anchor": "ctr",
    "link": "project-governance.html",
    "zh": [
@@ -986,12 +968,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "辅助城市投诉工单的部门分工",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -1000,20 +982,20 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Assisting departmental routing of urban complaint tickets",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
        "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
   {
    "x": 40.75,
-   "y": 68.0,
+   "y": 68,
    "w": 7.5,
-   "h": 14.0,
+   "h": 14,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -1024,7 +1006,7 @@ window.PATH_LAYOUT = {
        "t": "游戏开发",
        "size": 16.5,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
      "size": 16.5
@@ -1038,7 +1020,7 @@ window.PATH_LAYOUT = {
        "t": "Game",
        "size": 16.5,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
      "size": 16.5
@@ -1050,7 +1032,7 @@ window.PATH_LAYOUT = {
        "t": "development",
        "size": 16.5,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
      "size": 16.5
@@ -1059,9 +1041,9 @@ window.PATH_LAYOUT = {
   },
   {
    "x": 50.5,
-   "y": 68.0,
+   "y": 68,
    "w": 8.75,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -1070,12 +1052,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "LBS 游戏开发",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -1084,32 +1066,32 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Location-based",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     },
     {
      "align": "l",
      "runs": [
       {
        "t": "games",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
   {
-   "x": 60.0,
+   "x": 60,
    "y": 67.247,
    "w": 16.25,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": "game-parkugo.html",
    "zh": [
@@ -1118,12 +1100,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "地理游戏激活校园绿地",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -1132,20 +1114,20 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Activating campus green spaces through location-based play",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
   {
    "x": 50.5,
-   "y": 75.0,
+   "y": 75,
    "w": 8.75,
-   "h": 7.0,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -1154,12 +1136,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "公共治理游戏开发",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -1168,32 +1150,32 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "Public governance",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     },
     {
      "align": "l",
      "runs": [
       {
        "t": "games",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
   {
-   "x": 60.0,
+   "x": 60,
    "y": 75.753,
-   "w": 14.0,
-   "h": 7.0,
+   "w": 14,
+   "h": 7,
    "anchor": "ctr",
    "link": null,
    "zh": [
@@ -1202,12 +1184,12 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "社区花园自治游戏",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ],
    "en": [
@@ -1216,17 +1198,17 @@ window.PATH_LAYOUT = {
      "runs": [
       {
        "t": "A game for community garden self-governance",
-       "size": 15.0,
+       "size": 15,
        "bold": false,
-       "color": "#bfbfbf"
+       "color": "#111111"
       }
      ],
-     "size": 15.0
+     "size": 15
     }
    ]
   },
   {
-   "x": 75.0,
+   "x": 75,
    "y": 22.8,
    "w": 5.5,
    "h": 11.5,
@@ -1275,7 +1257,7 @@ window.PATH_LAYOUT = {
      "align": "ctr",
      "runs": [
       {
-       "t": "PhD Journey",
+       "t": "PhD journey",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
@@ -1287,9 +1269,9 @@ window.PATH_LAYOUT = {
   },
   {
    "x": 80.247,
-   "y": 45.0,
-   "w": 18.693,
-   "h": 33.0,
+   "y": 45,
+   "w": 19.2,
+   "h": 24,
    "anchor": "t",
    "link": null,
    "zh": [
@@ -1392,7 +1374,7 @@ window.PATH_LAYOUT = {
   {
    "x": 2.4,
    "y": 90.46,
-   "w": 17.0,
+   "w": 17,
    "h": 11.5,
    "anchor": "t",
    "link": null,
@@ -1461,7 +1443,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "人群的异质性",
+       "t": "不同人群的差异",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
@@ -1499,7 +1481,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "Population heterogeneity",
+       "t": "Differences across groups of people",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
@@ -1533,7 +1515,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "信息的有效边界",
+       "t": "信息何时有用、何时失效",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
@@ -1559,19 +1541,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "Focus on",
-       "size": 18,
-       "bold": false,
-       "color": "#111111"
-      },
-      {
-       "t": " h",
-       "size": 18,
-       "bold": false,
-       "color": "#111111"
-      },
-      {
-       "t": "uman mobility regularities",
+       "t": "Focus on human mobility regularities",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
@@ -1583,7 +1553,7 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "Limits of information utility",
+       "t": "When information helps, and when it does not",
        "size": 16.5,
        "bold": false,
        "color": "#111111"
@@ -1645,7 +1615,7 @@ window.PATH_LAYOUT = {
    "x": 2.273,
    "y": 22.8,
    "w": 13.25,
-   "h": 12.0,
+   "h": 12,
    "anchor": "t",
    "link": null,
    "zh": [
@@ -1703,13 +1673,61 @@ window.PATH_LAYOUT = {
      "align": "l",
      "runs": [
       {
-       "t": "a curious mind",
+       "t": "A curious mind",
        "size": 16.5,
        "bold": true,
        "color": "#FF0000"
       }
      ],
      "size": 16.5
+    }
+   ]
+  },
+  {
+   "x": 80.247,
+   "y": 73.2,
+   "w": 18.9,
+   "h": 14,
+   "anchor": "t",
+   "link": "project-rebuild.html",
+   "en": [
+    {
+     "align": "l",
+     "size": 16.5,
+     "runs": [
+      {
+       "t": "Persistence and reorganization of human mobility under changing urban environments",
+       "size": 16.5,
+       "bold": true,
+       "color": "#111111"
+      }
+     ]
+    }
+   ],
+   "zh": [
+    {
+     "align": "l",
+     "size": 16.5,
+     "runs": [
+      {
+       "t": "城市环境变化下",
+       "size": 16.5,
+       "bold": true,
+       "color": "#111111"
+      }
+     ]
+    },
+    {
+     "align": "l",
+     "size": 16.5,
+     "runs": [
+      {
+       "t": "人类移动规律的延续与重组",
+       "size": 16.5,
+       "bold": true,
+       "color": "#111111"
+      }
+     ]
     }
    ]
   }
@@ -2187,21 +2205,21 @@ window.PATH_LAYOUT = {
  "lines": [
   [
    15.5,
-   53.0,
-   5.0,
+   53,
+   5,
    0.1,
    "#111111"
   ],
   [
-   31.0,
-   53.0,
+   31,
+   53,
    7.5,
    0.1,
    "#111111"
   ],
   [
-   75.0,
-   53.0,
+   75,
+   53,
    4.5,
    0.1,
    "#111111"
@@ -2240,25 +2258,33 @@ window.PATH_LAYOUT = {
  "braces": [
   [
    48.4,
-   35.0,
+   35,
    1.1,
-   14.0,
+   14,
    "#111111"
   ],
   [
    48.4,
-   51.0,
+   51,
    1.1,
-   14.0,
+   14,
    "#111111"
   ],
   [
    48.4,
-   68.0,
+   68,
    1.1,
-   14.0,
-   "#a6a6a6"
+   14,
+   "#111111"
   ]
  ],
- "stroke": 0.125
+ "stroke": 0.125,
+ "down": [
+  [
+   81.2,
+   68.6,
+   3.6,
+   "#111111"
+  ]
+ ]
 };
